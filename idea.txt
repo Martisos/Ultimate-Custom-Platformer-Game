@@ -1,0 +1,28 @@
+2D platformer game
+
+Inspider by FNAF Ultimate Custom Night
+
+Mechanics:
+* Player chooses challenges then tries to beat a 2D platformer level. It should be short and not that hard.
+* WASD to move/jump, mouse to click and close pop ups.
+
+
+Probably 1-3 levels so it's not that repeatable, but every will be simple. Player has to make it difficult.
+
+
+Most challanges have 3 levels. The level will determine how hard and annoying the feature will be. Example: Popups on 1st level will show in 15-20 seconds, 3rd level: 5-7. So it's more frequent.
+
+Challenges (only for example):
+* ice floor - really bad acceleration and friction
+* Popups - random ads(not actually ads, maybe my games and some memes), close with a mouse
+* Lagging - the game will get glitched frame and fps will drop
+* Timer - player has limited time to beat the game
+* Random shader - the game might go black-and-white / pixeleted shader etc
+* Random player sprites
+* Sounds randomizer - it might be delayed, or just randomized (idk)
+* Screen mirror - the screen might randomly mirror in game
+* Gambling - you get small animation and you can randomly die idk lol
+* Visual Effects - too much distraction on screen
+* Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
+
+Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
