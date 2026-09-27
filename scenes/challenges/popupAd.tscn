@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c3dwqquo5alos"]
+
+[ext_resource type="Script" uid="uid://bmqqrb8yl3gsf" path="res://scripts/challenges/popup_ad.gd" id="1_gkcym"]
+[ext_resource type="Texture2D" uid="uid://divdqyu1360y1" path="res://resources/ads/totallyNormalImage.png" id="2_wnek3"]
+
+[node name="PopupAd" type="CanvasLayer" unique_id=1365224411]
+script = ExtResource("1_gkcym")
+ad_images = Array[Texture2D]([ExtResource("2_wnek3")])
+
+[node name="AdContainer" type="Control" parent="." unique_id=1415189859]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="AdContainer" unique_id=18035932]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AdImage" type="TextureRect" parent="AdContainer" unique_id=2076084800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CloseButton" type="Button" parent="AdContainer" unique_id=1085928239]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -34.5
+offset_top = -80.0
+offset_right = 34.5
+offset_bottom = -49.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SKIP AD"
+
+[connection signal="pressed" from="AdContainer/CloseButton" to="." method="_on_close_button_pressed"]

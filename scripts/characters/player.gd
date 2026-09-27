@@ -85,5 +85,5 @@ func apply_modifiers() -> void:
 	# ice floor
 	var ice_lvl = ChallengeManager.get_challange_level("ice_floor")
 	if ice_lvl > 0:
-		friction = friction / (ice_lvl * 4)
-		acceleration = acceleration / (ice_lvl * 3.0)
+		friction = friction / (ice_lvl * 4.5)
+		acceleration = acceleration / (ice_lvl * 3.5)

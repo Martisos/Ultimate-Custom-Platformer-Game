@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cyl051ndjjhb2" path="res://scenes/areas/kill_zone_world_boundary.tscn" id="4_2rs8s"]
 [ext_resource type="PackedScene" uid="uid://bjq4rgptyw3ku" path="res://scenes/areas/win_zone.tscn" id="5_ipi05"]
 [ext_resource type="PackedScene" uid="uid://dn76nw5g1khux" path="res://scenes/areas/kill_zone_rectangle.tscn" id="6_an6su"]
+[ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="7_l7idc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 
@@ -55,3 +56,5 @@ position = Vector2(376, -96)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/KillZoneWorldBoundary2" unique_id=1113644660]
 position = Vector2(-8, 7)
 shape = SubResource("RectangleShape2D_kb7tl")
+
+[node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("7_l7idc")]

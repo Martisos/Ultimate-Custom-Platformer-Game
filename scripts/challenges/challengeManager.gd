@@ -2,8 +2,8 @@ extends Node
 
 var challenges: Dictionary = {
 	"ice_floor": 3,
-	"rigid_jump": 0,
-	"popups": 0,
+	"rigid_jump": 1,
+	"popups": 3,
 	"timer": 0
 }
 

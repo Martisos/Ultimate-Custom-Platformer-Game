@@ -25,5 +25,7 @@ Challenges (only for example):
 * Visual Effects - too much distraction on screen
 * Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
 * flashbang cat - Cat appears on screen then it explodes like flashbang
+* wanna keep playing? - Poppup that might appear in random language, yes/no buttons are randomly swaped
+* fall damage - lvl 1: fall for a while to die, lvl: 3 fall damage like in dark souls 1
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
