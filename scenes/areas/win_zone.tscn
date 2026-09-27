@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bjq4rgptyw3ku"]
+
+[ext_resource type="Script" uid="uid://bhey47psdbsdx" path="res://scripts/areas/win_zone.gd" id="1_unftj"]
+
+[node name="WinZone" type="Area2D" unique_id=1968764492]
+script = ExtResource("1_unftj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

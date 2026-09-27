@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bmc2u2xw403kf" path="res://scripts/characters/player.gd" id="1_rp718"]
 [ext_resource type="Texture2D" uid="uid://b081bsye5e4a6" path="res://resources/sprites/player/MiniHorseMan.png" id="2_yewv4"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_a4hjo"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yewv4"]
+size = Vector2(15, 16)
 
 [sub_resource type="Animation" id="Animation_yewv4"]
 length = 0.001
@@ -95,12 +96,12 @@ _data = {
 &"walk": SubResource("Animation_dyp2m")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=349377917]
+[node name="Player" type="CharacterBody2D" unique_id=349377917 groups=["Player", "player"]]
 script = ExtResource("1_rp718")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738570708]
-position = Vector2(0, 5)
-shape = SubResource("CircleShape2D_a4hjo")
+position = Vector2(-0.5, 7)
+shape = SubResource("RectangleShape2D_yewv4")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444328994]
 visible = false

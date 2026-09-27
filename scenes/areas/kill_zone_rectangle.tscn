@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dn76nw5g1khux"]
+
+[ext_resource type="Script" uid="uid://h6rk1a4r2qc3" path="res://scripts/areas/kill_zone_world_boundary.tscn.gd" id="1_i1s6s"]
+
+[node name="KillZoneWorldBoundary" type="Area2D" unique_id=1420255688]
+script = ExtResource("1_i1s6s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

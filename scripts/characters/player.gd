@@ -21,6 +21,9 @@ var current_anim: String = ""
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+func _ready() -> void:
+	apply_modifiers()
+
 func _physics_process(delta: float) -> void:
 	
 	if not is_on_floor():
@@ -33,8 +36,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y  = max_jump_velocity
 		coyote_timer = 0.0
 	
-	if Input.is_action_just_released("jump") and velocity.y < min_jump_velocity:
-		velocity.y = min_jump_velocity
+	if ChallengeManager.get_challange_level("rigid_jump") == 0:
+		if Input.is_action_just_released("jump") and velocity.y < min_jump_velocity:
+			velocity.y = min_jump_velocity
 	
 	direction = Input.get_axis("left", "right")
 	
@@ -76,3 +80,10 @@ func update_animation() -> void:
 	if current_anim != target_anim:
 		current_anim = target_anim
 		animation_player.play(target_anim)
+
+func apply_modifiers() -> void:
+	# ice floor
+	var ice_lvl = ChallengeManager.get_challange_level("ice_floor")
+	if ice_lvl > 0:
+		friction = friction / (ice_lvl * 4)
+		acceleration = acceleration / (ice_lvl * 3.0)
