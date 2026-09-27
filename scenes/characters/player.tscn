@@ -3,8 +3,7 @@
 [ext_resource type="Script" uid="uid://bmc2u2xw403kf" path="res://scripts/characters/player.gd" id="1_rp718"]
 [ext_resource type="Texture2D" uid="uid://b081bsye5e4a6" path="res://resources/sprites/player/MiniHorseMan.png" id="2_yewv4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
-size = Vector2(15, 17)
+[sub_resource type="CircleShape2D" id="CircleShape2D_a4hjo"]
 
 [sub_resource type="Animation" id="Animation_yewv4"]
 length = 0.001
@@ -56,7 +55,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_atpat"]
 resource_name = "jump_up"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,8 +99,8 @@ _data = {
 script = ExtResource("1_rp718")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738570708]
-position = Vector2(-0.5, 6.5)
-shape = SubResource("RectangleShape2D_kb7tl")
+position = Vector2(0, 5)
+shape = SubResource("CircleShape2D_a4hjo")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444328994]
 visible = false
@@ -121,4 +120,4 @@ libraries/ = SubResource("AnimationLibrary_dyp2m")
 autoplay = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1549625895]
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)

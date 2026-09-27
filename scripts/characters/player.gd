@@ -3,13 +3,13 @@ extends CharacterBody2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
 
-@export var speed: float = 250.0
+@export var speed: float = 100.0
 @export var acceleration: float = 2000.0
 @export var friction: float = 1800.0
 
 
-@export var max_jump_velocity: float = -350.0
-@export var min_jump_velocity: float = -100.0
+@export var max_jump_velocity: float = -275.0
+@export var min_jump_velocity: float = -25.0
 
 
 @export var coyote_time: float = 0.1
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		coyote_timer = coyote_time
 	
-	if Input.is_action_pressed("jump") and coyote_timer > 0.0:
+	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0:
 		velocity.y  = max_jump_velocity
 		coyote_timer = 0.0
 	
