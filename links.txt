@@ -1,0 +1,3 @@
+Sprites:
+	Player: https://lyaseek.itch.io/minifhumans
+	Tileset: https://shackhal.itch.io/multi-platformer-tileset

@@ -1,17 +1,110 @@
 [gd_scene format=3 uid="uid://86e1g4py2cph"]
 
 [ext_resource type="Script" uid="uid://bmc2u2xw403kf" path="res://scripts/characters/player.gd" id="1_rp718"]
+[ext_resource type="Texture2D" uid="uid://b081bsye5e4a6" path="res://resources/sprites/player/MiniHorseMan.png" id="2_yewv4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kb7tl"]
-size = Vector2(20, 40)
+size = Vector2(15, 17)
+
+[sub_resource type="Animation" id="Animation_yewv4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_76oj4"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_kqtwu"]
+resource_name = "jump_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [25]
+}
+
+[sub_resource type="Animation" id="Animation_atpat"]
+resource_name = "jump_up"
+length = 0.19999999999999998
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [26, 24]
+}
+
+[sub_resource type="Animation" id="Animation_dyp2m"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [8, 9, 10, 11, 12, 13]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dyp2m"]
+_data = {
+&"RESET": SubResource("Animation_yewv4"),
+&"idle": SubResource("Animation_76oj4"),
+&"jump_down": SubResource("Animation_kqtwu"),
+&"jump_up": SubResource("Animation_atpat"),
+&"walk": SubResource("Animation_dyp2m")
+}
 
 [node name="Player" type="CharacterBody2D" unique_id=349377917]
 script = ExtResource("1_rp718")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1738570708]
+position = Vector2(-0.5, 6.5)
 shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1444328994]
+visible = false
 offset_left = -10.0
 offset_top = -20.0
 offset_right = 10.0
@@ -19,7 +112,13 @@ offset_bottom = 20.0
 color = Color(0.47397572, 0.47397572, 0.47397572, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=930055729]
+texture = ExtResource("2_yewv4")
+hframes = 8
+vframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=486236241]
+libraries/ = SubResource("AnimationLibrary_dyp2m")
+autoplay = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1549625895]
+zoom = Vector2(2.5, 2.5)

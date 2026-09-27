@@ -24,5 +24,6 @@ Challenges (only for example):
 * Gambling - you get small animation and you can randomly die idk lol
 * Visual Effects - too much distraction on screen
 * Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
+* flashbang cat - Cat appears on screen then it explodes like flashbang
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
