@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dyb4xa87bpo4q"]
+
+[ext_resource type="Shader" uid="uid://khpty5v8bk4n" path="res://scenes/shaders/screen_effects.gdshader" id="1_7p0nk"]
+[ext_resource type="Script" uid="uid://cuvg17twesurc" path="res://scripts/challenges/screen_effects.gd" id="1_q7slt"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ol6yu"]
+shader = ExtResource("1_7p0nk")
+shader_parameter/mirror_x = false
+shader_parameter/grayscale = false
+shader_parameter/invert_colors = false
+
+[node name="ScreenEffects" type="CanvasLayer" unique_id=33146392]
+layer = 5
+script = ExtResource("1_q7slt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=992824115]
+material = SubResource("ShaderMaterial_ol6yu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
