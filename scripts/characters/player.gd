@@ -87,3 +87,7 @@ func apply_modifiers() -> void:
 	if ice_lvl > 0:
 		friction = friction / (ice_lvl * 4.5)
 		acceleration = acceleration / (ice_lvl * 3.5)
+
+func die(reason: String = "") -> void:
+	print("Died: ", reason)
+	get_tree().reload_current_scene()

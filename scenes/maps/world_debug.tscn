@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bjq4rgptyw3ku" path="res://scenes/areas/win_zone.tscn" id="5_ipi05"]
 [ext_resource type="PackedScene" uid="uid://dn76nw5g1khux" path="res://scenes/areas/kill_zone_rectangle.tscn" id="6_an6su"]
 [ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="7_l7idc"]
+[ext_resource type="PackedScene" uid="uid://bs0c31clgf0mh" path="res://scenes/challenges/keep_playing_popup.tscn" id="8_2n4u7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 
@@ -58,3 +59,5 @@ position = Vector2(-8, 7)
 shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("7_l7idc")]
+
+[node name="KeepPlayingPopup" parent="." unique_id=1228857492 instance=ExtResource("8_2n4u7")]

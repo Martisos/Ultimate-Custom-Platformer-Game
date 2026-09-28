@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bs0c31clgf0mh"]
+
+[ext_resource type="Script" uid="uid://ncd137txuwb5" path="res://scripts/challenges/keep_playing_popup.gd" id="1_s3sl1"]
+
+[node name="KeepPlayingPopup" type="CanvasLayer" unique_id=1228857492]
+script = ExtResource("1_s3sl1")
+
+[node name="DialogWindow" type="PanelContainer" parent="." unique_id=986111467]
+custom_minimum_size = Vector2(300, 150)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DialogWindow" unique_id=1370087978]
+layout_mode = 2
+alignment = 1
+
+[node name="QuestionLabel" type="Label" parent="DialogWindow/VBoxContainer" unique_id=514683809]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DialogWindow/VBoxContainer" unique_id=438963442]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftButton" type="Button" parent="DialogWindow/VBoxContainer/HBoxContainer" unique_id=728016001]
+layout_mode = 2
+
+[node name="RightButton" type="Button" parent="DialogWindow/VBoxContainer/HBoxContainer" unique_id=927050531]
+layout_mode = 2
