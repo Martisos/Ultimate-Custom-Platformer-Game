@@ -80,11 +80,11 @@ func show_dialoge() -> void:
 func set_next_time() -> void:
 	match level:
 		1:
-			next_popup_time = randf_range(15.0, 25.0)
+			next_popup_time = randf_range(12.5, 17.5)
 		2:
-			next_popup_time = randf_range(10.0, 17.5)
+			next_popup_time = randf_range(10.0, 12.5)
 		3:
-			next_popup_time = randf_range(5.0, 15.0)
+			next_popup_time = randf_range(5.0, 10.0)
 			
 	print(level, " ", next_popup_time)
 
