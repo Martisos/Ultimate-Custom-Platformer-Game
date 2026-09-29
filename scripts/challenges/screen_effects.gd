@@ -18,8 +18,9 @@ var shader_duration: float = 5.0
 var current_active_shader: String = ""
 
 var avaiable_shaders: Array[String] = [
-	"grayscale",
-	"invert_colors"
+	#"grayscale",
+	#"invert_colors",
+	"zoom_blur"
 ]
 
 func _process(delta: float) -> void:
@@ -132,5 +133,5 @@ func set_shader_param(param_name: String, value: bool) -> void:
 
 func reset_all_shaders() -> void:
 	set_mirror(false)
-	set_shader_param(avaiable_shaders[0], false)
-	set_shader_param(avaiable_shaders[1], false)
+	for shader in avaiable_shaders:
+		set_shader_param(shader, false)

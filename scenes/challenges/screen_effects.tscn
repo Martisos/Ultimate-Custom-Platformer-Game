@@ -8,6 +8,14 @@ shader = ExtResource("1_7p0nk")
 shader_parameter/mirror_x = false
 shader_parameter/grayscale = false
 shader_parameter/invert_colors = false
+shader_parameter/zoom_blur = false
+shader_parameter/zoom_center = Vector2(0.5, 0.5)
+shader_parameter/layers = 5
+shader_parameter/opacity = 0.5
+shader_parameter/original_opacity_mod = 0.0
+shader_parameter/zoom = 0.25
+shader_parameter/normalization = 1.0
+shader_parameter/normalized_scale = 0.01
 
 [node name="ScreenEffects" type="CanvasLayer" unique_id=33146392]
 layer = 5
