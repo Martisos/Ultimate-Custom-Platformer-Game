@@ -1,12 +1,13 @@
 extends Node
 
 var challenges: Dictionary = {
-	"ice_floor": 3,
+	"ice_floor": 0,
 	"rigid_jump": 1,
-	"popups": 3,
-	"wanna_keep_playing": 3,
-	"mirror": 3,
-	"random_shaders": 3,
+	"popups": 0,
+	"wanna_keep_playing": 0,
+	"mirror": 0,
+	"random_shaders": 0,
+	"fall_damage": 3,
 }
 
 var is_popup_open: bool = false
