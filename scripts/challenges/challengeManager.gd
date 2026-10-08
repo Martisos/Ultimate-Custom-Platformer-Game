@@ -9,6 +9,7 @@ var challenges: Dictionary = {
 	"random_shaders": 0,
 	"fall_damage": 0,
 	"random_animations": 0,
+	"immortal_snail": 1,
 }
 
 var is_popup_open: bool = false

@@ -205,11 +205,15 @@ func die(reason: String = "") -> void:
 	if is_dead: return
 	is_dead = true
 	
+	var animation_death_deaths : Array[String] = [
+		"Fall Damage (Dark souls style)",
+		"Touched by an Immortal Snail"
+	]
 	
 	velocity = Vector2.ZERO
 	print("Died: ", reason)
 	
-	if reason == "Fall Damage (Dark souls style)":
+	if animation_death_deaths.has(reason):
 		animation_player.play("death")
 	else:
 		get_tree().reload_current_scene()

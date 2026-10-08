@@ -37,6 +37,6 @@ Challenges (only for example):
 * Particles - fnaf world type particles randomly appears
 * Random Camera tweaks
 * Sticky keys -> after clicking some key 4 times in a row, you get windows sticky key announcment.
-
+* Dead pixels -> they are multiplying... -> Dead pixels appear on the screen. Longer it takes to beat the level, more pixels appear.
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
