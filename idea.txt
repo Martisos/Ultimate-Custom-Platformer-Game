@@ -18,16 +18,16 @@ Challenges (only for example):
 - Rigid jump - always the same height of jump
 * Lagging - the game will get glitched frame and fps will drop
 * Timer - player has limited time to beat the game
-* Random shader - the game might go black-and-white / pixeleted shader etc
-* Random player sprites
++ Random shader - the game might go black-and-white / pixeleted shader etc
+- Random player animation
 * Sounds randomizer - it might be delayed, or just randomized (idk)
-* Screen mirror - the screen might randomly mirror in game
+- Screen mirror - the screen might randomly mirror in game
 * Gambling - you get small animation and you can randomly die idk lol
 * Visual Effects - too much distraction on screen
 * Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
 * flashbang cat - Cat appears on screen then it explodes like flashbang
 - wanna keep playing? - Poppup that might appear in random language, yes/no buttons are randomly swaped
-* fall damage - lvl 1: fall for a while to die, lvl: 3 fall damage like in dark souls 1
+- fall damage - lvl 1: fall for a while to die, lvl: 3 fall damage like in dark souls 1
 
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
