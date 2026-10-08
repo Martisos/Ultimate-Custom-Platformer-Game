@@ -54,11 +54,8 @@ func _physics_process(delta: float) -> void:
 		
 		if velocity.y > 0:
 			fall_time += delta
-			print(fall_time)
 	else:
 		coyote_timer = coyote_time
-		
-
 	
 	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0:
 		velocity.y  = max_jump_velocity

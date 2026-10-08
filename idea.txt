@@ -28,6 +28,15 @@ Challenges (only for example):
 * flashbang cat - Cat appears on screen then it explodes like flashbang
 - wanna keep playing? - Poppup that might appear in random language, yes/no buttons are randomly swaped
 - fall damage - lvl 1: fall for a while to die, lvl: 3 fall damage like in dark souls 1
+* stamina bar - walking and jumping takes stamina
+* small minigame - something like "old man consequences" -> you cant jump if you miss or something
+* obstacles - (should be the first challenge btw) spikes/bushes might spawn on the map
+* captcha - "check green colors" etc -> silly questions on screen to proceed
+* Immortal snail - flies to you. Always. (probably instead of normal timer
+* Random notifications - discord / whatsup / messanger / google giggles etc. Random sounds to distract
+* Particles - fnaf world type particles randomly appears
+* Random Camera tweaks
+* Sticky keys -> after clicking some key 4 times in a row, you get windows sticky key announcment.
 
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
