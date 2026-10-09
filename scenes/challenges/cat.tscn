@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://c8tq6x8eucdlx"]
+
+[ext_resource type="Script" uid="uid://bb0t4vck3832j" path="res://scripts/challenges/cat.gd" id="1_5fqrv"]
+[ext_resource type="Texture2D" uid="uid://cl1mjcnkge7ly" path="res://resources/sprites/cats/cat1.png" id="1_t4yj6"]
+[ext_resource type="Texture2D" uid="uid://dqpx8iakdrbsq" path="res://resources/sprites/cats/cat2.png" id="3_jcj3d"]
+[ext_resource type="Texture2D" uid="uid://cyffbvuakgi8w" path="res://resources/sprites/cats/cat3.png" id="4_4vhaf"]
+
+[sub_resource type="Animation" id="Animation_ygoyd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_d12ba"]
+resource_name = "walk"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwgqh"]
+_data = {
+&"RESET": SubResource("Animation_ygoyd"),
+&"walk": SubResource("Animation_d12ba")
+}
+
+[node name="Cat" type="Control" unique_id=1653174288]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -41.0
+offset_top = -32.0
+offset_right = 41.0
+offset_bottom = 32.0
+script = ExtResource("1_5fqrv")
+sprites_list = Array[Texture]([ExtResource("1_t4yj6"), ExtResource("3_jcj3d"), ExtResource("4_4vhaf")])
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=479805710]
+position = Vector2(41, 32)
+scale = Vector2(2, 2)
+texture = ExtResource("1_t4yj6")
+hframes = 6
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1506592069]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kwgqh")
+autoplay = &"walk"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1142963207]
+layer = 102
+
+[node name="FlashBang" type="ColorRect" parent="CanvasLayer" unique_id=2088856429]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

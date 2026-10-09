@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://68kjmhxvrbag"]
+
+[ext_resource type="Script" uid="uid://gnonmm2hp23d" path="res://scripts/challenges/flashbang_cat.gd" id="1_ygoyd"]
+
+[node name="FlashbangCat" type="CanvasLayer" unique_id=534881362]
+layer = 101
+script = ExtResource("1_ygoyd")

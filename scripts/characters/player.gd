@@ -194,7 +194,7 @@ func apply_modifiers() -> void:
 		3: max_fall_time = 0.39
 		_: max_fall_time = INF
 	
-	#random animations
+	#random animations & flips
 	random_anim_level = ChallengeManager.get_challange_level("random_animations")
 	if random_anim_level > 0:
 		set_next_random_anim_time()

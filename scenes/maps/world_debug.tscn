@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="7_l7idc"]
 [ext_resource type="PackedScene" uid="uid://bs0c31clgf0mh" path="res://scenes/challenges/keep_playing_popup.tscn" id="8_2n4u7"]
 [ext_resource type="PackedScene" uid="uid://dyb4xa87bpo4q" path="res://scenes/challenges/screen_effects.tscn" id="9_w56v5"]
+[ext_resource type="PackedScene" uid="uid://68kjmhxvrbag" path="res://scenes/challenges/flashbang_cat.tscn" id="10_1i3qf"]
 [ext_resource type="PackedScene" uid="uid://df3ie4ptl3l6e" path="res://scenes/challenges/immortal_snail.tscn" id="10_vg8y3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
@@ -67,6 +68,8 @@ layer = 10
 layer = 11
 
 [node name="ScreenEffects" parent="." unique_id=33146392 instance=ExtResource("9_w56v5")]
+
+[node name="FlashbangCat" parent="." unique_id=534881362 instance=ExtResource("10_1i3qf")]
 
 [node name="ImmortalSnail" parent="." unique_id=1759505893 instance=ExtResource("10_vg8y3")]
 position = Vector2(-97, -3)
