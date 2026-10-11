@@ -189,6 +189,9 @@ func reset_all_shaders() -> void:
 	set_mirror(false)
 	for shader in avaiable_shaders:
 		set_shader_param(shader, false)
+	
 
 func _exit_tree() -> void:
+	is_lagging = false;
 	Engine.max_fps = 0
+	set_shader_param("glitch_active", false)
