@@ -59,13 +59,8 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_t4yj6")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1506592069]
-root_node = NodePath("../Sprite2D")
-libraries/ = SubResource("AnimationLibrary_kwgqh")
-autoplay = &"walk"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1142963207]
-layer = 102
+layer = 200
 
 [node name="FlashBang" type="ColorRect" parent="CanvasLayer" unique_id=2088856429]
 anchors_preset = 15
@@ -74,5 +69,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1506592069]
+root_node = NodePath("../Sprite2D")
+libraries/ = SubResource("AnimationLibrary_kwgqh")
+autoplay = &"walk"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

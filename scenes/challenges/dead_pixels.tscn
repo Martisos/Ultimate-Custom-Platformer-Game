@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b3yw4k71nc80g"]
+
+[ext_resource type="Script" uid="uid://bpl1fh3yj365v" path="res://scripts/challenges/dead_pixels.gd" id="1_cakby"]
+
+[node name="DeadPixelsLayer" type="CanvasLayer" unique_id=1827899599]
+layer = 103
+
+[node name="PixelScreen" type="Control" parent="." unique_id=1322852810]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_cakby")

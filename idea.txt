@@ -37,7 +37,7 @@ X Timer - player has limited time to beat the game
 * small minigame - something like "old man consequences" -> you cant jump if you miss or something
 * obstacles - (should be the first challenge btw) spikes/bushes might spawn on the map
 * captcha - "check green colors" etc -> silly questions on screen to proceed
-- Immortal snail - flies to you. Always. (probably instead of normal timer
+- Immortal snail - flies to you. Always. (probably instead of normal timer)
 * Random notifications - discord / whatsup / messanger / google giggles etc. Random sounds to distract
 * Particles - fnaf world type particles randomly appears
 * Random Camera tweaks
