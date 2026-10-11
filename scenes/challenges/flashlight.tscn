@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://d0vpue7vtdjka"]
+
+[ext_resource type="Script" uid="uid://btsige8302x4i" path="res://scripts/challenges/flashlight.gd" id="1_j0jn5"]
+[ext_resource type="Shader" uid="uid://2fslt4o5snoc" path="res://scenes/shaders/flashlight.gdshader" id="2_jw3xc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hpcxc"]
+shader = ExtResource("2_jw3xc")
+shader_parameter/mouse_position = Vector2(0, 0)
+shader_parameter/screen_size = Vector2(0, 0)
+shader_parameter/radius = 0.5
+shader_parameter/softness = 50.0
+shader_parameter/darkness_color = Color(0, 0, 0, 0.98)
+
+[node name="Flashlight" type="CanvasLayer" unique_id=1427363263]
+layer = 6
+script = ExtResource("1_j0jn5")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=346608377]
+clip_children = 2
+material = SubResource("ShaderMaterial_hpcxc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

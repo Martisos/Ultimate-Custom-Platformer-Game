@@ -17,6 +17,11 @@ var is_shader_active: bool = false
 var shader_duration: float = 5.0
 var current_active_shader: String = ""
 
+#--Lagging--
+var lag_level: int = 0
+var lag_timer: float = 0.0
+var is_lagging: bool = false
+
 var avaiable_shaders: Array[String] = [
 	#"grayscale",
 	#"invert_colors",
@@ -26,6 +31,7 @@ var avaiable_shaders: Array[String] = [
 func _process(delta: float) -> void:
 	_process_mirror(delta)
 	_process_random_shaders(delta)
+	_process_lag(delta)
 
 func _ready() -> void:
 	reset_all_shaders()
@@ -38,11 +44,14 @@ func _ready() -> void:
 	shaders_level = ChallengeManager.get_challange_level("random_shaders")
 	if shaders_level > 0:
 		set_next_shader_time()
+	
+	lag_level = ChallengeManager.get_challange_level("lag")
+	if lag_level > 0:
+		set_next_lag_time()
+		print("lag level > 0")
 
 
 # --MIRROR--
-
-
 func _process_mirror(delta: float) -> void:
 	if mirror_level == 0:
 		return
@@ -83,9 +92,46 @@ func set_mirror(state: bool) -> void:
 	if mat:
 		mat.set_shader_parameter("mirror_x", state)
 
+# --LAG--
 
-# --RANDOM SHADERS--
+func _process_lag(delta: float) -> void:
+	if lag_level == 0: return
+	lag_timer -= delta
+	
+	if !is_lagging:
+		if lag_timer <= 0.0:
+			start_lag_spike()
+	else:
+		if lag_timer <= 0.0:
+			stop_lag_spike()
 
+func start_lag_spike() -> void:
+	is_lagging = true
+	set_shader_param("glitch_active", true)
+	
+	var intensity:float = 0.0
+	
+	
+	if lag_level == 1:
+		intensity = 0.4
+	else:
+		intensity = 0.8
+	set_shader_param("glitch_intensity", intensity)
+	
+	match lag_level:
+		1: Engine.max_fps = 20
+		2: Engine.max_fps = 12
+		3: Engine.max_fps = 6
+	
+	lag_timer = randf_range(0.5, 2.5)
+
+func stop_lag_spike() -> void:
+	is_lagging = false;
+	Engine.max_fps = 0
+	set_shader_param("glitch_active", false)
+	set_next_lag_time()
+
+# --RANDOM SHADERS-
 
 func _process_random_shaders(delta: float) -> void:
 	if shaders_level == 0:
@@ -130,8 +176,19 @@ func set_shader_param(param_name: String, value: bool) -> void:
 	if mat:
 		mat.set_shader_parameter(param_name, value)
 
+func set_next_lag_time() -> void:
+	match lag_level:
+		1: lag_timer  = randf_range(10.0, 15.0)
+		2: lag_timer  = randf_range(7.5, 10.0)
+		3: lag_timer  = randf_range(5.0, 7.5)
+	
+	print(lag_timer )
+
 
 func reset_all_shaders() -> void:
 	set_mirror(false)
 	for shader in avaiable_shaders:
 		set_shader_param(shader, false)
+
+func _exit_tree() -> void:
+	Engine.max_fps = 0

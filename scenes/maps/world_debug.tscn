@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://dtrb4xlmg6mqd"]
 
 [ext_resource type="PackedScene" uid="uid://86e1g4py2cph" path="res://scenes/characters/player.tscn" id="1_bddlh"]
+[ext_resource type="Texture2D" uid="uid://ca4x54hxmrs8h" path="res://resources/sprites/maps/background/GrassLand_Background_1.png" id="1_uf5ba"]
 [ext_resource type="TileSet" uid="uid://cc5b33gei6ull" path="res://tilesets/default_tilemap.tres" id="2_a4hjo"]
 [ext_resource type="TileSet" uid="uid://2to161on3i36" path="res://tilesets/props_tileset.tres" id="3_a4hjo"]
 [ext_resource type="PackedScene" uid="uid://cyl051ndjjhb2" path="res://scenes/areas/kill_zone_world_boundary.tscn" id="4_2rs8s"]
@@ -11,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://dyb4xa87bpo4q" path="res://scenes/challenges/screen_effects.tscn" id="9_w56v5"]
 [ext_resource type="PackedScene" uid="uid://68kjmhxvrbag" path="res://scenes/challenges/flashbang_cat.tscn" id="10_1i3qf"]
 [ext_resource type="PackedScene" uid="uid://df3ie4ptl3l6e" path="res://scenes/challenges/immortal_snail.tscn" id="10_vg8y3"]
+[ext_resource type="PackedScene" uid="uid://d0vpue7vtdjka" path="res://scenes/challenges/flashlight.tscn" id="11_gnbw4"]
+[ext_resource type="Texture2D" uid="uid://dvw1n0nlmcim8" path="res://resources/sprites/maps/background/GrassLand_Background_2.png" id="14_qcj57"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 
@@ -63,13 +66,44 @@ shape = SubResource("RectangleShape2D_kb7tl")
 
 [node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("7_l7idc")]
 layer = 10
+visible = false
 
 [node name="KeepPlayingPopup" parent="." unique_id=1228857492 instance=ExtResource("8_2n4u7")]
 layer = 11
+visible = false
 
 [node name="ScreenEffects" parent="." unique_id=33146392 instance=ExtResource("9_w56v5")]
+visible = false
 
 [node name="FlashbangCat" parent="." unique_id=534881362 instance=ExtResource("10_1i3qf")]
+visible = false
+
+[node name="Flashlight" parent="." unique_id=1427363263 instance=ExtResource("11_gnbw4")]
+visible = false
 
 [node name="ImmortalSnail" parent="." unique_id=1759505893 instance=ExtResource("10_vg8y3")]
 position = Vector2(-97, -3)
+
+[node name="Background" type="Node2D" parent="." unique_id=124948602]
+z_index = -3
+position = Vector2(0, -32)
+metadata/_edit_group_ = true
+
+[node name="Sky" type="Parallax2D" parent="Background" unique_id=1645721756]
+visible = false
+repeat_size = Vector2(368, 104)
+autoscroll = Vector2(3, 0)
+repeat_times = 100
+screen_offset = Vector2(0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Sky" unique_id=454448126]
+position = Vector2(0, -60)
+texture = ExtResource("1_uf5ba")
+
+[node name="Parallax2D" type="Parallax2D" parent="Background" unique_id=1365034442]
+scroll_scale = Vector2(0.3, 0.9)
+repeat_size = Vector2(338, 0)
+repeat_times = 50
+
+[node name="Sprite2D" type="Sprite2D" parent="Background/Parallax2D" unique_id=1808043050]
+texture = ExtResource("14_qcj57")

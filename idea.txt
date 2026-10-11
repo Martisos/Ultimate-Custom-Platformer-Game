@@ -43,6 +43,6 @@ X Timer - player has limited time to beat the game
 * Random Camera tweaks
 * Sticky keys -> after clicking some key 4 times in a row, you get windows sticky key announcment.
 * Dead pixels -> they are multiplying... -> Dead pixels appear on the screen. Longer it takes to beat the level, more pixels appear.
-* Flash light mode -> Darkness on whole screen, use flashlight with mouse. (bad idea idk)
+- Flash light mode -> Darkness on whole screen, use flashlight with mouse. (bad idea idk)
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
