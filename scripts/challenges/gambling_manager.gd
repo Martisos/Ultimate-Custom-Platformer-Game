@@ -27,6 +27,6 @@ func spawn_machine() -> void:
 
 func set_next_time():
 	match level:
-		1: next_time = randf_range(12.5, 17.5)
-		2: next_time = randf_range(10, 15)
-		3: next_time = randf_range(5, 10)
+		1: next_time = randf_range(12.5, 15)
+		2: next_time = randf_range(7.5, 12.5)
+		3: next_time = randf_range(5, 7.5)

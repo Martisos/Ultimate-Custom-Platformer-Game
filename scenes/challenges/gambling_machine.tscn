@@ -28,6 +28,14 @@ offset_right = 168.0
 offset_bottom = 71.0
 color = Color(0.0078359265, 0, 0.24056232, 1)
 
+[node name="ColorRect" type="ColorRect" parent="Control/ColorRect" unique_id=1743879798]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 6.0
+offset_right = 171.0
+offset_bottom = 64.0
+color = Color(0.0078359265, 0, 0.24056232, 1)
+
 [node name="icon1" type="ColorRect" parent="Control" unique_id=1671311405]
 layout_mode = 0
 offset_left = 8.0

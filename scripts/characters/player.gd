@@ -8,7 +8,7 @@ extends CharacterBody2D
 @export var friction: float = 1800.0
 
 
-@export var max_jump_velocity: float = -275.0
+@export var max_jump_velocity: float = -250.0
 @export var min_jump_velocity: float = -25.0
 
 # -- FALLING --
@@ -84,6 +84,7 @@ func _physics_process(delta: float) -> void:
 	if was_in_air and is_on_floor():
 		
 		if fall_time >= max_fall_time:
+			print(fall_time)
 			die("Fall Damage (Dark souls style)")
 		else:
 			trigger_land_squash()
@@ -189,9 +190,9 @@ func apply_modifiers() -> void:
 	#fall damage
 	var fall_damage_level = ChallengeManager.get_challange_level("fall_damage")
 	match fall_damage_level:
-		1: max_fall_time = 1.0
-		2: max_fall_time = 0.6
-		3: max_fall_time = 0.39
+		1: max_fall_time = 0.7
+		2: max_fall_time = 0.5
+		3: max_fall_time = 0.32
 		_: max_fall_time = INF
 	
 	#random animations & flips
