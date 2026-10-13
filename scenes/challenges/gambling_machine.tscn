@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://bc1ak8jcm5e71"]
+
+[ext_resource type="Script" uid="uid://eavc1ax2ek4l" path="res://scripts/challenges/gambling_machine.gd" id="1_lukge"]
+[ext_resource type="Texture2D" uid="uid://c7w4mbexwrw53" path="res://resources/sprites/gambling/icons/skull.png" id="2_3c1cv"]
+[ext_resource type="Texture2D" uid="uid://dyqv42lqf8xxr" path="res://resources/sprites/gambling/icons/icon-beer.png" id="3_aieg7"]
+[ext_resource type="Texture2D" uid="uid://ddjaqpytfw5v3" path="res://resources/sprites/gambling/icons/icon-bread.png" id="4_w8rhy"]
+[ext_resource type="Texture2D" uid="uid://b2amuwfjbnud0" path="res://resources/sprites/gambling/icons/icon-cherry.png" id="5_txxng"]
+[ext_resource type="Texture2D" uid="uid://dm1jvjwybcnns" path="res://resources/sprites/gambling/icons/icon-honey.png" id="6_40v62"]
+[ext_resource type="Texture2D" uid="uid://cixs6jtytaiyx" path="res://resources/sprites/gambling/icons/icon-potion.png" id="7_gohkj"]
+[ext_resource type="Texture2D" uid="uid://clp8yfrqn1xye" path="res://resources/sprites/gambling/icons/icon-strawberry.png" id="8_wugd4"]
+
+[node name="GamblingMachine" type="CanvasLayer" unique_id=1558957897]
+layer = 11
+script = ExtResource("1_lukge")
+skull_icon = ExtResource("2_3c1cv")
+other_icons = Array[Texture]([ExtResource("3_aieg7"), ExtResource("4_w8rhy"), ExtResource("5_txxng"), ExtResource("6_40v62"), ExtResource("7_gohkj"), ExtResource("8_wugd4"), ExtResource("2_3c1cv")])
+
+[node name="Control" type="Control" parent="." unique_id=742385598]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 47.0
+offset_top = -71.0
+offset_right = 198.0
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=379407775]
+layout_mode = 0
+offset_right = 168.0
+offset_bottom = 71.0
+color = Color(0.0078359265, 0, 0.24056232, 1)
+
+[node name="icon1" type="ColorRect" parent="Control" unique_id=1671311405]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 11.0
+offset_right = 56.0
+offset_bottom = 59.0
+
+[node name="icon2" type="ColorRect" parent="Control" unique_id=683206793]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 11.0
+offset_right = 108.0
+offset_bottom = 59.0
+
+[node name="icon3" type="ColorRect" parent="Control" unique_id=1940219609]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 11.0
+offset_right = 160.0
+offset_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control" unique_id=387576358]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 5.0
+offset_right = 160.0
+offset_bottom = 68.0
+
+[node name="Icon1" type="TextureRect" parent="Control/HBoxContainer" unique_id=195498745]
+z_index = 1
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon2" type="TextureRect" parent="Control/HBoxContainer" unique_id=1949595052]
+z_index = 1
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Icon3" type="TextureRect" parent="Control/HBoxContainer" unique_id=657701643]
+z_index = 1
+custom_minimum_size = Vector2(48, 48)
+custom_maximum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4

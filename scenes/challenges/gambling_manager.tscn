@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://d28giljnlfsq4"]
+
+[ext_resource type="Script" uid="uid://c8lhi61qgl3nl" path="res://scripts/challenges/gambling_manager.gd" id="1_13ja3"]
+
+[node name="GamblingManager" type="Node" unique_id=276527916]
+script = ExtResource("1_13ja3")

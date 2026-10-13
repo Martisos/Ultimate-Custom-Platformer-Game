@@ -21,7 +21,7 @@ Challenges (only for example):
 - ice floor - really bad acceleration and friction
 - Popups - random ads(not actually ads, maybe my games and some memes), close with a mouse
 - Rigid jump - always the same height of jump
-* Lagging - the game will get glitched frame and fps will drop
+- Lagging - the game will get glitched frame and fps will drop
 X Timer - player has limited time to beat the game
 + Random shader - the game might go black-and-white / pixeleted shader etc
 - Random player animation
@@ -42,7 +42,7 @@ X Timer - player has limited time to beat the game
 * Particles - fnaf world type particles randomly appears
 * Random Camera tweaks
 * Sticky keys -> after clicking some key 4 times in a row, you get windows sticky key announcment.
-* Dead pixels -> they are multiplying... -> Dead pixels appear on the screen. Longer it takes to beat the level, more pixels appear.
+- Dead pixels -> they are multiplying... -> Dead pixels appear on the screen. Longer it takes to beat the level, more pixels appear.
 - Flash light mode -> Darkness on whole screen, use flashlight with mouse. (bad idea idk)
 
 Idk if i be able to implement everything, but it's just ideas. Maybe in the future everything will be implemented
