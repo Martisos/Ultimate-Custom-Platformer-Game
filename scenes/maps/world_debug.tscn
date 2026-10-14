@@ -7,18 +7,11 @@
 [ext_resource type="PackedScene" uid="uid://cyl051ndjjhb2" path="res://scenes/areas/kill_zone_world_boundary.tscn" id="4_2rs8s"]
 [ext_resource type="PackedScene" uid="uid://bjq4rgptyw3ku" path="res://scenes/areas/win_zone.tscn" id="5_ipi05"]
 [ext_resource type="PackedScene" uid="uid://dn76nw5g1khux" path="res://scenes/areas/kill_zone_rectangle.tscn" id="6_an6su"]
-[ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="7_l7idc"]
-[ext_resource type="PackedScene" uid="uid://b3yw4k71nc80g" path="res://scenes/challenges/dead_pixels.tscn" id="7_ulcym"]
-[ext_resource type="PackedScene" uid="uid://bs0c31clgf0mh" path="res://scenes/challenges/keep_playing_popup.tscn" id="8_2n4u7"]
-[ext_resource type="PackedScene" uid="uid://dyb4xa87bpo4q" path="res://scenes/challenges/screen_effects.tscn" id="9_w56v5"]
-[ext_resource type="PackedScene" uid="uid://68kjmhxvrbag" path="res://scenes/challenges/flashbang_cat.tscn" id="10_1i3qf"]
-[ext_resource type="PackedScene" uid="uid://df3ie4ptl3l6e" path="res://scenes/challenges/immortal_snail.tscn" id="10_vg8y3"]
-[ext_resource type="PackedScene" uid="uid://d0vpue7vtdjka" path="res://scenes/challenges/flashlight.tscn" id="11_gnbw4"]
+[ext_resource type="PackedScene" uid="uid://d1os6gidpyb8c" path="res://scenes/challenges/challenges_container_node.tscn" id="7_gnbw4"]
 [ext_resource type="Texture2D" uid="uid://dvw1n0nlmcim8" path="res://resources/sprites/maps/background/GrassLand_Background_2.png" id="14_qcj57"]
 [ext_resource type="Texture2D" uid="uid://djw7skrgo73kf" path="res://resources/sprites/maps/background/GrassLand_Background_3.png" id="15_krbop"]
 [ext_resource type="Texture2D" uid="uid://bpqlhtc7umv3x" path="res://resources/sprites/maps/background/GrassLand_Background_4.png" id="16_u2hge"]
 [ext_resource type="Texture2D" uid="uid://cvljsa6775mq4" path="res://resources/sprites/maps/background/GrassLand_Background_5.png" id="17_ulcym"]
-[ext_resource type="PackedScene" uid="uid://d28giljnlfsq4" path="res://scenes/challenges/gambling_manager.tscn" id="19_1yh6v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb7tl"]
 
@@ -69,22 +62,8 @@ position = Vector2(376, -96)
 position = Vector2(-8, 7)
 shape = SubResource("RectangleShape2D_kb7tl")
 
-[node name="DeadPixelsLayer" parent="." unique_id=1827899599 instance=ExtResource("7_ulcym")]
-
-[node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("7_l7idc")]
-layer = 10
-
-[node name="KeepPlayingPopup" parent="." unique_id=1228857492 instance=ExtResource("8_2n4u7")]
-layer = 11
-
-[node name="ScreenEffects" parent="." unique_id=33146392 instance=ExtResource("9_w56v5")]
-
-[node name="FlashbangCat" parent="." unique_id=534881362 instance=ExtResource("10_1i3qf")]
-
-[node name="Flashlight" parent="." unique_id=1427363263 instance=ExtResource("11_gnbw4")]
-
-[node name="ImmortalSnail" parent="." unique_id=1759505893 instance=ExtResource("10_vg8y3")]
-position = Vector2(-97, -3)
+[node name="ChallengesContainerNode" parent="." unique_id=309763406 instance=ExtResource("7_gnbw4")]
+visible = false
 
 [node name="Background-Paralaxes" type="Node2D" parent="." unique_id=124948602]
 z_index = -5
@@ -135,5 +114,3 @@ repeat_times = 100
 [node name="Sprite2D" type="Sprite2D" parent="Background-Paralaxes/GrasFront" unique_id=448950113]
 position = Vector2(0, -2)
 texture = ExtResource("17_ulcym")
-
-[node name="GamblingManager" parent="." unique_id=276527916 instance=ExtResource("19_1yh6v")]

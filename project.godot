@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Ultimate Custom Platformer"
-run/main_scene="uid://dtrb4xlmg6mqd"
+run/main_scene="uid://cat6ndethayqc"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 

@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://d1os6gidpyb8c"]
+
+[ext_resource type="PackedScene" uid="uid://b3yw4k71nc80g" path="res://scenes/challenges/dead_pixels.tscn" id="1_kxket"]
+[ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="2_1yrdf"]
+[ext_resource type="PackedScene" uid="uid://bs0c31clgf0mh" path="res://scenes/challenges/keep_playing_popup.tscn" id="3_cbsca"]
+[ext_resource type="PackedScene" uid="uid://dyb4xa87bpo4q" path="res://scenes/challenges/screen_effects.tscn" id="4_pfx0d"]
+[ext_resource type="PackedScene" uid="uid://68kjmhxvrbag" path="res://scenes/challenges/flashbang_cat.tscn" id="5_swtr6"]
+[ext_resource type="PackedScene" uid="uid://d0vpue7vtdjka" path="res://scenes/challenges/flashlight.tscn" id="6_utftj"]
+[ext_resource type="PackedScene" uid="uid://df3ie4ptl3l6e" path="res://scenes/challenges/immortal_snail.tscn" id="7_v47pq"]
+[ext_resource type="PackedScene" uid="uid://d28giljnlfsq4" path="res://scenes/challenges/gambling_manager.tscn" id="8_6qry6"]
+
+[node name="ChallengesContainerNode" type="Node2D" unique_id=708467453]
+
+[node name="DeadPixelsLayer" parent="." unique_id=1827899599 instance=ExtResource("1_kxket")]
+
+[node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("2_1yrdf")]
+layer = 10
+
+[node name="KeepPlayingPopup" parent="." unique_id=1228857492 instance=ExtResource("3_cbsca")]
+layer = 11
+
+[node name="ScreenEffects" parent="." unique_id=33146392 instance=ExtResource("4_pfx0d")]
+
+[node name="FlashbangCat" parent="." unique_id=534881362 instance=ExtResource("5_swtr6")]
+
+[node name="Flashlight" parent="." unique_id=1427363263 instance=ExtResource("6_utftj")]
+
+[node name="ImmortalSnail" parent="." unique_id=1759505893 instance=ExtResource("7_v47pq")]
+position = Vector2(-97, -3)
+
+[node name="GamblingManager" parent="." unique_id=276527916 instance=ExtResource("8_6qry6")]

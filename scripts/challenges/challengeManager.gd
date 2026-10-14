@@ -1,8 +1,8 @@
 extends Node
 
 var challenges: Dictionary = {
-	"ice_floor": 0, #0-3
-	"rigid_jump": 0, #0-1
+	"ice_floor": 3, #0-3
+	"rigid_jump": 1, #0-1
 	"popups": 0, #0-3
 	"wanna_keep_playing": 0, #0-3
 	"mirror": 0, #0-3
@@ -13,8 +13,8 @@ var challenges: Dictionary = {
 	"flashbang_cat": 0, #0-3
 	"flashlight": 0, #0-3
 	"lag": 0, #0-3
-	"dead_pixels": 0, #0-3
-	"gambling": 3 #0-3
+	"dead_pixels": 0,#0-3
+	"gambling": 0, #0-3
 }
 
 var is_popup_open: bool = false
