@@ -1,15 +1,15 @@
 extends Node
 
 var challenges: Dictionary = {
-	"ice_floor": 3, #0-3
-	"rigid_jump": 1, #0-1
+	"ice_floor": 0, #0-3
+	"rigid_jump": 0, #0-1
 	"popups": 0, #0-3
 	"wanna_keep_playing": 0, #0-3
 	"mirror": 0, #0-3
 	"random_shaders": 0, #0-3
-	"fall_damage": 3, #0-3
+	"fall_damage": 0, #0-3
 	"random_animations": 0, #0-3
-	"immortal_snail": 0, #0-3
+	"immortal_snail": 3, #0-3
 	"flashbang_cat": 0, #0-3
 	"flashlight": 0, #0-3
 	"lag": 0, #0-3

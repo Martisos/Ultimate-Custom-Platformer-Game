@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d28giljnlfsq4" path="res://scenes/challenges/gambling_manager.tscn" id="8_6qry6"]
 
 [node name="ChallengesContainerNode" type="Node2D" unique_id=708467453]
+z_index = 2
 
 [node name="DeadPixelsLayer" parent="." unique_id=1827899599 instance=ExtResource("1_kxket")]
 
@@ -26,6 +27,7 @@ layer = 11
 [node name="Flashlight" parent="." unique_id=1427363263 instance=ExtResource("6_utftj")]
 
 [node name="ImmortalSnail" parent="." unique_id=1759505893 instance=ExtResource("7_v47pq")]
+z_index = 22
 position = Vector2(-97, -3)
 
 [node name="GamblingManager" parent="." unique_id=276527916 instance=ExtResource("8_6qry6")]
