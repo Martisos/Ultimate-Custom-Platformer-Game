@@ -5,6 +5,7 @@ extends PanelContainer
 var current_level: int = 0
 
 @onready var current_level_label: Label = $HBoxContainer/Right/VBoxContainer/CurrentLevelLabel
+@onready var texture_rect: TextureRect = $HBoxContainer/Left/TextureRect
 
 func _ready() -> void:
 	current_level = ChallengeManager.challenges.get(challenge_key, 0)
@@ -12,6 +13,14 @@ func _ready() -> void:
 	print(ChallengeManager.challenges.get(challenge_key, 0))
 	update_display()
 
+func setup(key: String, level: int) -> void:
+	challenge_key = key
+	max_level = level
+	
+	if Menudatabase.menu_data.has(key):
+		var data = Menudatabase.menu_data[key]
+		tooltip_text = data["desc"]
+		print(data["desc"])
 
 func _on_left_mouse_entered() -> void:
 	print(challenge_key)

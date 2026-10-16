@@ -23,8 +23,8 @@ var lag_timer: float = 0.0
 var is_lagging: bool = false
 
 var avaiable_shaders: Array[String] = [
-	#"grayscale",
-	#"invert_colors",
+	"grayscale",
+	"invert_colors",
 	"zoom_blur"
 ]
 

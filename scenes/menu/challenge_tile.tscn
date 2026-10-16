@@ -27,6 +27,7 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(60, 60)
 custom_maximum_size = Vector2(60, 60)
 layout_mode = 2
+mouse_default_cursor_shape = 16
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Left" unique_id=1165966599]
 layout_mode = 0

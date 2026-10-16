@@ -10,8 +10,7 @@ func _ready() -> void:
 	var all_challenges: Dictionary = ChallengeManager.return_all_challenges()
 	for challenge in all_challenges:
 		var newTile = tile_scene.instantiate()
-		newTile.challenge_key = challenge
-		newTile.max_level = all_challenges[challenge]
+		newTile.setup(challenge, all_challenges[challenge])
 		grid_container.add_child(newTile)
 	
 func _on_start_button_pressed() -> void:
