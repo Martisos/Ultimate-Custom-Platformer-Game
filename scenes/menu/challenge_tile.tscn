@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://vfxwxu6qiqim"]
+
+[ext_resource type="Script" uid="uid://bmwwvgf73b3yg" path="res://scenes/menu/challenge_tile.gd" id="1_7sx15"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4xme"]
+bg_color = Color(0, 0, 0, 0.49019608)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sx15"]
+bg_color = Color(0.50140655, 0.5014065, 0.5014065, 0.49019608)
+
+[node name="ChallengeTile" type="PanelContainer" unique_id=991683072]
+custom_minimum_size = Vector2(90, 60)
+custom_maximum_size = Vector2(-1, 60)
+offset_right = 90.0
+offset_bottom = 65.0
+script = ExtResource("1_7sx15")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=27585025]
+layout_mode = 2
+color = Color(0.8217887, 0.82178867, 0.82178867, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1577284184]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Control" parent="HBoxContainer" unique_id=1340857562]
+custom_minimum_size = Vector2(60, 60)
+custom_maximum_size = Vector2(60, 60)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Left" unique_id=1165966599]
+layout_mode = 0
+offset_right = 50.0
+offset_bottom = 50.0
+
+[node name="Right" type="Control" parent="HBoxContainer" unique_id=499032816]
+custom_minimum_size = Vector2(30, 65)
+custom_maximum_size = Vector2(30, 65)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/Right" unique_id=245726292]
+custom_minimum_size = Vector2(25, 50)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.37791896, 0.37791884, 0.37791884, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Right" unique_id=1103089400]
+custom_minimum_size = Vector2(30, 60)
+custom_maximum_size = Vector2(30, 60)
+layout_mode = 0
+offset_right = 21.0
+offset_bottom = 50.0
+
+[node name="PanelContainerUp" type="Button" parent="HBoxContainer/Right/VBoxContainer" unique_id=1685700937]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n4xme")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n4xme")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7sx15")
+
+[node name="Label" type="Label" parent="HBoxContainer/Right/VBoxContainer/PanelContainerUp" unique_id=1253882813]
+custom_minimum_size = Vector2(0, 10)
+custom_maximum_size = Vector2(-1, 10)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 6
+text = "^"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CurrentLevelLabel" type="Label" parent="HBoxContainer/Right/VBoxContainer" unique_id=1521442529]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelContainerDown" type="Button" parent="HBoxContainer/Right/VBoxContainer" unique_id=630658723]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_n4xme")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_n4xme")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7sx15")
+
+[node name="Label" type="Label" parent="HBoxContainer/Right/VBoxContainer/PanelContainerDown" unique_id=1735429120]
+custom_minimum_size = Vector2(0, 10)
+custom_maximum_size = Vector2(-1, 10)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 6
+text = "v"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="HBoxContainer/Left" to="." method="_on_left_mouse_entered"]
+[connection signal="pressed" from="HBoxContainer/Right/VBoxContainer/PanelContainerUp" to="." method="_on_panel_container_up_pressed"]
+[connection signal="pressed" from="HBoxContainer/Right/VBoxContainer/PanelContainerDown" to="." method="_on_panel_container_down_pressed"]

@@ -12,9 +12,9 @@ func _ready() -> void:
 		return
 	
 	match level:
-		1: speed = 12.5
-		2: speed = 17.5
-		3: speed = 21.5
+		1: speed = 15.0
+		2: speed = 20.0
+		3: speed = 25.0
 	
 	player = get_tree().get_first_node_in_group("player") as CharacterBody2D
 	

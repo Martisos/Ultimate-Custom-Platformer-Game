@@ -11,9 +11,9 @@ var is_flashed: bool = false
 func _ready() -> void:
 	level = ChallengeManager.get_challange_level("flashbang_cat")
 	match level:
-		1: max_new_cat_timer = 7.5
-		2: max_new_cat_timer = 5.0
-		3: max_new_cat_timer = 3.0
+		1: max_new_cat_timer = 4.5
+		2: max_new_cat_timer = 3.0
+		3: max_new_cat_timer = 2.0
 	
 	if level > 0:
 		reset_timer()
