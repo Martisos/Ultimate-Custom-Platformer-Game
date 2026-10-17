@@ -1,6 +1,10 @@
 extends PanelContainer
 
-@export var challenge_key: String = "ice_floor"
+signal challenge_changed()
+signal tooltip_show(key: String)
+signal tooltip_hide()
+
+@export var challenge_key: String = ""
 @export var max_level: int = 3
 var current_level: int = 0
 
@@ -13,17 +17,16 @@ func _ready() -> void:
 	print(ChallengeManager.challenges.get(challenge_key, 0))
 	update_display()
 
+
 func setup(key: String, level: int) -> void:
 	challenge_key = key
 	max_level = level
-	
-	if Menudatabase.menu_data.has(key):
-		var data = Menudatabase.menu_data[key]
-		tooltip_text = data["desc"]
-		print(data["desc"])
 
 func _on_left_mouse_entered() -> void:
-	print(challenge_key)
+	emit_signal("tooltip_show", challenge_key)
+
+func _on_left_mouse_exited() -> void:
+	emit_signal("tooltip_hide")
 
 func update_display() -> void:
 	current_level_label.text = str(current_level)
@@ -39,13 +42,19 @@ func update_display() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", newModulate, 0.1)
 
+func update_points(added_points: int) -> void:
+	ChallengeManager.add_to_current_score(added_points)
+
 func _on_panel_container_up_pressed() -> void:
+	var temp = current_level
 	current_level = min(current_level + 1, max_level)
 	ChallengeManager.challenges[challenge_key] = current_level
+	emit_signal("challenge_changed")
 	update_display()
-
+	
 
 func _on_panel_container_down_pressed() -> void:
 	current_level = max(current_level - 1, 0)
 	ChallengeManager.challenges[challenge_key] = current_level
+	emit_signal("challenge_changed")
 	update_display()

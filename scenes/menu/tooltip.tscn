@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c7qndbpblp56i"]
+
+[ext_resource type="Script" uid="uid://chxe6o2t6jn7m" path="res://scripts/menu/tooltip.gd" id="1_ffd03"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb7tl"]
+bg_color = Color(0.03522153, 0.082447104, 0.22517383, 0.9019608)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.012221339, 0.01888854, 0.147811, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="Tooltip" type="PanelContainer" unique_id=2120598535]
+custom_maximum_size = Vector2(250, 100)
+offset_right = 181.0
+offset_bottom = 79.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kb7tl")
+script = ExtResource("1_ffd03")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=29456195]
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=16]Title
+[font_size=10] Descritpion 
+"
+fit_content = true

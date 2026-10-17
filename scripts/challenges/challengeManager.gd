@@ -1,7 +1,7 @@
 extends Node
 
 var challenges: Dictionary = {
-	"ice_floor": 1, #0-3
+	"ice_floor": 0, #0-3
 	"rigid_jump": 0, #0-1
 	"popups": 0, #0-3
 	"wanna_keep_playing": 0, #0-3
@@ -9,7 +9,7 @@ var challenges: Dictionary = {
 	"random_shaders": 0, #0-3
 	"fall_damage": 0, #0-3
 	"random_animations": 0, #0-3
-	"immortal_snail": 3, #0-3
+	"immortal_snail": 0, #0-3
 	"flashbang_cat": 0, #0-3
 	"flashlight": 0, #0-3
 	"lag": 0, #0-3
@@ -18,9 +18,26 @@ var challenges: Dictionary = {
 }
 
 var high_score: int = 0
+var current_score: int = 0
 const SAVE_PATH = "user://savegame.cfg"
 
 var is_popup_open: bool = false
+
+func update_current_points() -> void:
+	current_score = 0
+	print("---------")
+	for challenge in challenges:
+		print("first if")
+		if Menudatabase.menu_data.has(challenge):
+			print("second if")
+			var data = Menudatabase.menu_data[challenge]
+			var points: int = data["points"]
+			var aditional_points = points * challenges[challenge]
+			current_score += aditional_points
+			print(aditional_points)
+
+func return_current_points() -> int:
+	return current_score
 
 func return_all_challenges() -> Dictionary:
 	var returningDict: Dictionary = {}
@@ -35,6 +52,12 @@ func set_challenge_level(name: String, level: int) -> void:
 	for challenge in challenges:
 		if challenge == name:
 			challenges[challenge] = level
+
+func reset_current_score() -> void:
+	current_score = 0
+
+func add_to_current_score(points: int) -> void:
+	current_score += points
 
 func _ready() -> void:
 	load_game()

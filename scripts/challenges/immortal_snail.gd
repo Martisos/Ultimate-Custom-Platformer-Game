@@ -12,9 +12,9 @@ func _ready() -> void:
 		return
 	
 	match level:
-		1: speed = 15.0
-		2: speed = 20.0
-		3: speed = 25.0
+		1: speed = 30.0
+		2: speed = 35.0
+		3: speed = 45.0
 	
 	player = get_tree().get_first_node_in_group("player") as CharacterBody2D
 	
@@ -22,7 +22,7 @@ func _process(delta: float) -> void:
 	if player and !player.is_dead:
 		var direction = global_position.direction_to(player.global_position)
 		global_position += direction * delta * speed
-
+	
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		body.die("Touched by an Immortal Snail")

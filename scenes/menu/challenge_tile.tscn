@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://vfxwxu6qiqim"]
 
 [ext_resource type="Script" uid="uid://bmwwvgf73b3yg" path="res://scenes/menu/challenge_tile.gd" id="1_7sx15"]
+[ext_resource type="PackedScene" uid="uid://c7qndbpblp56i" path="res://scenes/menu/tooltip.tscn" id="2_e6a7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4xme"]
 bg_color = Color(0, 0, 0, 0.49019608)
@@ -27,7 +28,6 @@ theme_override_constants/separation = 0
 custom_minimum_size = Vector2(60, 60)
 custom_maximum_size = Vector2(60, 60)
 layout_mode = 2
-mouse_default_cursor_shape = 16
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/Left" unique_id=1165966599]
 layout_mode = 0
@@ -99,6 +99,11 @@ text = "v"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Tooltip" parent="." unique_id=2120598535 instance=ExtResource("2_e6a7j")]
+visible = false
+layout_mode = 2
+
 [connection signal="mouse_entered" from="HBoxContainer/Left" to="." method="_on_left_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Left" to="." method="_on_left_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Right/VBoxContainer/PanelContainerUp" to="." method="_on_panel_container_up_pressed"]
 [connection signal="pressed" from="HBoxContainer/Right/VBoxContainer/PanelContainerDown" to="." method="_on_panel_container_down_pressed"]
