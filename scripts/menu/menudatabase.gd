@@ -85,4 +85,10 @@ var menu_data: Dictionary = {
 		"desc" : "Let's go gambling! 5% chance to die. Higher level means more frequent slot machine spawn",
 		"points": 100
 	},
+	"visual_effects" : {
+		"title": "Visual Effects",
+		"icon" : "",
+		"desc": "Cool fireworks! Direworks can randomly start shooting. Higher levels means more frequent events and more particles",
+		"points" : 100
+	}
 }

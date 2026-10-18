@@ -13,9 +13,9 @@ func _ready() -> void:
 		return
 	
 	match level:
-		1: radius = 175.0
-		2: radius = 150.0
-		3: radius = 125.0
+		1: radius = 140.0
+		2: radius = 125.0
+		3: radius = 100.0
 	
 	var screen_size = get_viewport().get_visible_rect().size
 	color_rect.material.set_shader_parameter("screen_size", screen_size)

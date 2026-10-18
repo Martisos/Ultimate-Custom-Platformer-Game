@@ -25,11 +25,11 @@ Challenges (only for example):
 X Timer - player has limited time to beat the game
 + Random shader - the game might go black-and-white / pixeleted shader etc
 - Random player animation
-* Sounds randomizer - it might be delayed, or just randomized (idk)
+X Sounds randomizer - it might be delayed, or just randomized (idk)
 - Screen mirror - the screen might randomly mirror in game
 - Gambling - you get small animation and you can randomly die idk lol
 * Visual Effects - too much distraction on screen
-* Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
+X Collecting Coins - Player has to grab 50%(or all on higher levels) of coins to be able to finish
 - flashbang cat - Cat appears on screen then it explodes like flashbang, it goes from left/right of the screen and if it reaches center it explodes. hover it to dissapear the cat
 - wanna keep playing? - Poppup that might appear in random language, yes/no buttons are randomly swaped
 - fall damage - lvl 1: fall for a while to die, lvl: 3 fall damage like in dark souls 1

@@ -15,6 +15,7 @@ var challenges: Dictionary = {
 	"lag": 0, #0-3
 	"dead_pixels": 0,#0-3
 	"gambling": 0, #0-3
+	"visual_effects": 3 #0-3
 }
 
 var high_score: int = 0

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://b3yw4k71nc80g" path="res://scenes/challenges/dead_pixels.tscn" id="1_kxket"]
 [ext_resource type="PackedScene" uid="uid://c3dwqquo5alos" path="res://scenes/challenges/popupAd.tscn" id="2_1yrdf"]
+[ext_resource type="PackedScene" uid="uid://dn78mi1oexhvw" path="res://scenes/challenges/visual_chaos.tscn" id="3_1yrdf"]
 [ext_resource type="PackedScene" uid="uid://bs0c31clgf0mh" path="res://scenes/challenges/keep_playing_popup.tscn" id="3_cbsca"]
 [ext_resource type="PackedScene" uid="uid://dyb4xa87bpo4q" path="res://scenes/challenges/screen_effects.tscn" id="4_pfx0d"]
 [ext_resource type="PackedScene" uid="uid://68kjmhxvrbag" path="res://scenes/challenges/flashbang_cat.tscn" id="5_swtr6"]
@@ -16,6 +17,8 @@ z_index = 2
 
 [node name="PopupAd" parent="." unique_id=1365224411 instance=ExtResource("2_1yrdf")]
 layer = 10
+
+[node name="VisualChaos" parent="." unique_id=779430480 instance=ExtResource("3_1yrdf")]
 
 [node name="KeepPlayingPopup" parent="." unique_id=1228857492 instance=ExtResource("3_cbsca")]
 layer = 11
