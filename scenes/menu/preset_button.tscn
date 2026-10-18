@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bm7h54c1atp5t"]
+
+[ext_resource type="Script" uid="uid://cq5h8853xpaxk" path="res://scripts/menu/preset_button.gd" id="1_fgr4s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb7tl"]
+bg_color = Color(0.03529412, 0.08235294, 0.22352941, 0.9019608)
+
+[node name="PresetButton" type="Button" unique_id=795588158]
+custom_minimum_size = Vector2(160, 50)
+theme_override_styles/normal = SubResource("StyleBoxFlat_kb7tl")
+script = ExtResource("1_fgr4s")
+
+[node name="Label" type="Label" parent="." unique_id=1241385436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = -5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.851769, 0.8517689, 0.85176885, 1)
+text = "Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

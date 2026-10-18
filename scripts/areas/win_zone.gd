@@ -5,8 +5,16 @@ func _on_body_entered(body: Node2D) -> void:
 		print("You won")
 		var score_earned = ChallengeManager.return_current_points()
 		
+		check_preset_done()
+		
 		if score_earned > ChallengeManager.high_score:
 			ChallengeManager.high_score = score_earned
-			ChallengeManager.save_game()
-			
+		
+		ChallengeManager.save_game()
+		
 		get_tree().change_scene_to_file("res://scenes/menu/challenge_menu.tscn")
+
+func check_preset_done() -> void:
+	if ChallengeManager.active_preset != "":
+		var current_preset = ChallengeManager.active_preset
+		ChallengeManager.complete_preset(current_preset)

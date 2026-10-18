@@ -12,15 +12,13 @@ var current_level: int = 0
 @onready var texture_rect: TextureRect = $HBoxContainer/Left/TextureRect
 
 func _ready() -> void:
-	current_level = ChallengeManager.challenges.get(challenge_key, 0)
-	print(challenge_key)
-	print(ChallengeManager.challenges.get(challenge_key, 0))
 	update_display()
-
 
 func setup(key: String, level: int) -> void:
 	challenge_key = key
 	max_level = level
+	
+	current_level = ChallengeManager.challenges.get(challenge_key, 0)
 
 func _on_left_mouse_entered() -> void:
 	emit_signal("tooltip_show", challenge_key)
@@ -50,11 +48,17 @@ func _on_panel_container_up_pressed() -> void:
 	current_level = min(current_level + 1, max_level)
 	ChallengeManager.challenges[challenge_key] = current_level
 	emit_signal("challenge_changed")
+	ChallengeManager.active_preset = ""
 	update_display()
-	
 
 func _on_panel_container_down_pressed() -> void:
 	current_level = max(current_level - 1, 0)
 	ChallengeManager.challenges[challenge_key] = current_level
 	emit_signal("challenge_changed")
+	ChallengeManager.active_preset = ""
+	update_display()
+
+
+func refresh_from_manager() -> void:
+	current_level = ChallengeManager.challenges.get(challenge_key, 0)
 	update_display()

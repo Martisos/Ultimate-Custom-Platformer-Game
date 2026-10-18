@@ -1,4 +1,5 @@
 extends Node
+var active_preset: String = ""
 
 var challenges: Dictionary = {
 	"ice_floor": 0, #0-3
@@ -16,6 +17,45 @@ var challenges: Dictionary = {
 	"dead_pixels": 0,#0-3
 	"gambling": 0, #0-3
 	"visual_effects": 3 #0-3
+}
+
+var presets: Dictionary = {
+	"all_zero": {
+		"title" : "Nothing",
+		"beaten": false
+	},
+	"mouse_challenge1": {
+		"title" : "Mouse Challenge I",
+		"beaten" : false
+	},
+	"mouse_challenge2": {
+		"title" : "Mouse Challenge II",
+		"beaten" : false
+	}, 
+	"mouse_challenge3": {
+		"title" : "Mouse Challenge III",
+		"beaten" : false
+	}, 
+	"visual_chaos": {
+		"title" : "Visual Chaos",
+		"beaten" : false
+	}, 
+	"slop_platformer": {
+		"title" : "Slop Platformer",
+		"beaten" : false
+	}, 
+	"all_one": {
+		"title" : "All to 1",
+		"beaten": false
+	},
+	"all_two": {
+		"title" : "All to 2",
+		"beaten": true
+	},
+	"all_three": {
+		"title" : "50 / 20",
+		"beaten": false
+	},
 }
 
 var high_score: int = 0
@@ -63,7 +103,6 @@ func add_to_current_score(points: int) -> void:
 func _ready() -> void:
 	load_game()
 	print(high_score)
-	#set_challenges_to_max()
 
 func set_challenges_to_max() -> void:
 	for challenge in challenges:
@@ -78,11 +117,15 @@ func get_challange_level(name: String) -> int:
 # -- saving loading --
 
 func save_game() -> void:
+	update_current_points()
 	var config = ConfigFile.new()
 	config.set_value("game", "high_score", high_score)
 	
 	for key in challenges.keys():
 		config.set_value("challenges", key, challenges[key])
+	
+	for key in presets.keys():
+		config.set_value("presets", key, presets[key]["beaten"])
 	
 	config.save(SAVE_PATH)
 
@@ -97,4 +140,62 @@ func load_game() -> void:
 	for key in challenges.keys():
 		challenges[key] = config.get_value("challenges", key, 0)
 	
+	for key in presets.keys():
+		presets[key]["beaten"] = config.get_value("presets", key, false)
+		print(presets[key]["beaten"])
+		
 	high_score = config.get_value("game", "high_score", 0)
+
+# --- PRESETS ---
+
+func set_all_challenges_to(level: int) -> void:
+	for key in challenges:
+		challenges[key] = level
+	save_game()
+
+func load_preset(preset_name: String) -> void:
+	set_all_challenges_to(0)
+	active_preset = preset_name
+	match preset_name:
+		"all_zero":
+			set_all_challenges_to(0)
+			active_preset = ""
+		"all_one":
+			set_all_challenges_to(1)
+		"all_two":
+			set_all_challenges_to(2)
+		"all_three":
+			set_all_challenges_to(3)
+		"mouse_challenge1":
+			challenges["popups"] = 1
+			challenges["wanna_keep_playing"] = 1
+			challenges["flashbang_cat"] = 2
+			challenges["flashlight"] = 1
+			challenges["immortal_snail"] = 2
+		"mouse_challenge2":
+			challenges["popups"] = 3
+			challenges["wanna_keep_playing"] = 1
+			challenges["flashbang_cat"] = 2
+			challenges["flashlight"] = 2
+			challenges["immortal_snail"] = 2
+		"mouse_challenge3":
+			challenges["popups"] = 3
+			challenges["wanna_keep_playing"] = 3
+			challenges["flashbang_cat"] = 3
+			challenges["flashlight"] = 3
+			challenges["immortal_snail"] = 2
+		"visual_chaos":
+			challenges[""] = 1
+		"slop_platformer":
+			challenges["ice_floor"] = 3
+			challenges["rigid_jump"] = 1
+			challenges["popups"] = 2
+			challenges["fall_damage"] = 3
+			challenges["immortal_snail"] = 3
+			challenges["lag"] = 2
+			challenges["dead_pixels"] = 3
+
+func complete_preset(preset_name: String) -> void:
+	if presets.has(preset_name):
+		presets[preset_name]["beaten"] = true
+		save_game()

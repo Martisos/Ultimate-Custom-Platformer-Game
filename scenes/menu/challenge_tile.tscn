@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://vfxwxu6qiqim"]
 
-[ext_resource type="Script" uid="uid://bmwwvgf73b3yg" path="res://scenes/menu/challenge_tile.gd" id="1_7sx15"]
+[ext_resource type="Script" uid="uid://bmwwvgf73b3yg" path="res://scripts/menu/challenge_tile.gd" id="1_7sx15"]
 [ext_resource type="PackedScene" uid="uid://c7qndbpblp56i" path="res://scenes/menu/tooltip.tscn" id="2_e6a7j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n4xme"]

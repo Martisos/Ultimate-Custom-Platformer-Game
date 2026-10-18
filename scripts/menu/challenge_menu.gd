@@ -7,9 +7,11 @@ var tile_scene: PackedScene = preload("uid://vfxwxu6qiqim")
 @onready var label_current_score_number: Label = $"Container/RightPanel/VBoxContainer/RightBottomPanel/VBoxContainer/HBoxContainer/Actual Score/LabelCurrentScoreNumber"
 @onready var grid_container: GridContainer = $Container/GridContainer
 @onready var label_high_score_number: Label = $Container/RightPanel/VBoxContainer/RightBottomPanel/VBoxContainer/HBoxContainer/Highscore/LabelHighScoreNumber
+@onready var presets_container: VBoxContainer = $Container/RightPanel/VBoxContainer/Presets/ScrollContainer/VBoxContainer
 
 func _ready() -> void:
 	_on_any_challenge_changed()
+	sync_high_score()
 	var all_challenges: Dictionary = ChallengeManager.return_all_challenges()
 	for challenge in all_challenges:
 		var newTile = tile_scene.instantiate()
@@ -21,6 +23,9 @@ func _ready() -> void:
 		newTile.setup(challenge, all_challenges[challenge])
 		grid_container.add_child(newTile)
 	sync_high_score()
+	set_presets()
+	ChallengeManager.update_current_points()
+	label_current_score_number.text = str(ChallengeManager.return_current_points())
 	
 func sync_high_score() -> void:
 	high_score = ChallengeManager.high_score
@@ -39,6 +44,27 @@ func _tooltip_show(key: String) -> void:
 
 func _tooltip_hide() -> void:
 	tooltip.hide()
+
+func set_presets() -> void:
+	const PRESET_BUTTON = preload("uid://bm7h54c1atp5t")
+	
+	for preset_key in ChallengeManager.presets:
+		var data = ChallengeManager.presets[preset_key]
+		var button = PRESET_BUTTON.instantiate()
+		button.setup(preset_key, data["title"], data["beaten"])
+		button.preset_selected.connect(_on_preset_chosen)
+		presets_container.add_child(button)
+
+func _on_preset_chosen(preset_name: String) -> void:
+	_on_any_challenge_changed()
+	for tile in grid_container.get_children():
+		if tile.has_method("refresh_from_manager"):
+			tile.refresh_from_manager()
+	sync_high_score()
+	
+	for btn in presets_container.get_children():
+		if btn.has_method("change_color"):
+			btn.change_color()
 
 func _on_start_button_pressed() -> void:
 	ChallengeManager.save_game()

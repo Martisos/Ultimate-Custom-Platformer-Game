@@ -194,8 +194,8 @@ func apply_modifiers() -> void:
 	#fall damage
 	var fall_damage_level = ChallengeManager.get_challange_level("fall_damage")
 	match fall_damage_level:
-		1: max_fall_time = 0.7
-		2: max_fall_time = 0.5
+		1: max_fall_time = 0.41
+		2: max_fall_time = 0.37
 		3: max_fall_time = 0.34
 		_: max_fall_time = INF
 	

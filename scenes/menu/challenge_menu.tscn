@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bprj0fyiy1rnd"]
 
-[ext_resource type="Script" uid="uid://kckxmurl3qwm" path="res://scenes/menu/challenge_menu.gd" id="1_povdl"]
+[ext_resource type="Script" uid="uid://kckxmurl3qwm" path="res://scripts/menu/challenge_menu.gd" id="1_povdl"]
 [ext_resource type="PackedScene" uid="uid://c7qndbpblp56i" path="res://scenes/menu/tooltip.tscn" id="2_sm46u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kb7tl"]
@@ -60,6 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="GridBackground" type="ColorRect" parent="Container" unique_id=1311115987]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,6 +86,7 @@ offset_right = 620.0
 offset_bottom = 340.0
 
 [node name="ColorRect" type="ColorRect" parent="Container/RightPanel" unique_id=436730690]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -110,6 +112,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Container/RightPanel/VBoxContainer/Presets/ScrollContainer" unique_id=1707919633]
 layout_mode = 2
@@ -119,6 +122,7 @@ custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="Container/RightPanel/VBoxContainer/RightBottomPanel" unique_id=1911933672]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
