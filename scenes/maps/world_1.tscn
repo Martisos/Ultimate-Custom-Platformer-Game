@@ -109,6 +109,13 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/WinZone" unique_id=1886086759]
 shape = SubResource("CircleShape2D_1s2g6")
 
+[node name="WinZone2" parent="Zones" unique_id=1290508138 instance=ExtResource("10_wu0oe")]
+position = Vector2(-17, -42)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zones/WinZone2" unique_id=2016770518]
+shape = SubResource("CircleShape2D_1s2g6")
+
 [node name="Player" parent="." unique_id=349377917 instance=ExtResource("3_r50x4")]
 position = Vector2(-249, -15)
 

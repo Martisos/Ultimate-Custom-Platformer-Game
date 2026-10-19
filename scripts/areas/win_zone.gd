@@ -9,10 +9,11 @@ func _on_body_entered(body: Node2D) -> void:
 		
 		if score_earned > ChallengeManager.high_score:
 			ChallengeManager.high_score = score_earned
+			ChallengeManager.is_new_high_score = true
 		
 		ChallengeManager.save_game()
 		
-		get_tree().change_scene_to_file("res://scenes/menu/challenge_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menu/win_screen.tscn")
 
 func check_preset_done() -> void:
 	if ChallengeManager.active_preset != "":

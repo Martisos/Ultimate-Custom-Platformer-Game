@@ -21,13 +21,14 @@ func setup(name: String, title: String, beaten: bool) -> void:
 func _on_pressed() -> void:
 	ChallengeManager.load_preset(button_name)
 	emit_signal("preset_selected", button_name)
-	change_color()
 
 func change_color() -> void:
+	await get_tree().create_timer(0.01).timeout
 	if ChallengeManager.active_preset == button_name:
 		color = Color(0.129, 0.365, 1.0, 1.0)
 	elif is_beaten:
 		color = Color("7cc487ff")
 	else:
 		color = Color("d9d9d9")
+	
 	label.set("theme_override_colors/font_color", color)

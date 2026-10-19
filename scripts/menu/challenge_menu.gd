@@ -17,6 +17,8 @@ func _ready() -> void:
 		var newTile = tile_scene.instantiate()
 		
 		newTile.challenge_changed.connect(_on_any_challenge_changed)
+		newTile.challenge_changed.connect(_on_tile_or_challenge_changed)
+		
 		newTile.tooltip_show.connect(_tooltip_show)
 		newTile.tooltip_hide.connect(_tooltip_hide)
 		
@@ -60,6 +62,7 @@ func _on_preset_chosen(preset_name: String) -> void:
 	for tile in grid_container.get_children():
 		if tile.has_method("refresh_from_manager"):
 			tile.refresh_from_manager()
+		
 	sync_high_score()
 	
 	for btn in presets_container.get_children():
@@ -67,5 +70,12 @@ func _on_preset_chosen(preset_name: String) -> void:
 			btn.change_color()
 
 func _on_start_button_pressed() -> void:
+	ChallengeManager.is_new_high_score = false
 	ChallengeManager.save_game()
 	get_tree().change_scene_to_file("res://scenes/maps/world_1.tscn")
+
+func _on_tile_or_challenge_changed() -> void:
+	_on_any_challenge_changed()
+	for btn in presets_container.get_children():
+		if btn.has_method("change_color"):
+			btn.change_color()

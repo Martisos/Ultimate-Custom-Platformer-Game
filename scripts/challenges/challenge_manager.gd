@@ -50,7 +50,7 @@ var presets: Dictionary = {
 	},
 	"all_two": {
 		"title" : "All to 2",
-		"beaten": true
+		"beaten": false
 	},
 	"all_three": {
 		"title" : "50 / 20",
@@ -59,6 +59,7 @@ var presets: Dictionary = {
 }
 
 var high_score: int = 0
+var is_new_high_score: bool = false
 var current_score: int = 0
 const SAVE_PATH = "user://savegame.cfg"
 
@@ -101,6 +102,7 @@ func add_to_current_score(points: int) -> void:
 	current_score += points
 
 func _ready() -> void:
+	#hard_reset()
 	load_game()
 	print(high_score)
 
@@ -146,6 +148,19 @@ func load_game() -> void:
 		
 	high_score = config.get_value("game", "high_score", 0)
 
+func hard_reset() -> void:
+	var config = ConfigFile.new()
+	
+	for key in challenges.keys():
+		config.set_value("challenges", key, 0)
+	
+	for key in presets.keys():
+		config.set_value("presets", key, false)
+	
+	high_score = 0
+	config.set_value("game", "high_score", 0)
+	config.save(SAVE_PATH)
+
 # --- PRESETS ---
 
 func set_all_challenges_to(level: int) -> void:
@@ -156,6 +171,7 @@ func set_all_challenges_to(level: int) -> void:
 func load_preset(preset_name: String) -> void:
 	set_all_challenges_to(0)
 	active_preset = preset_name
+	
 	match preset_name:
 		"all_zero":
 			set_all_challenges_to(0)
@@ -180,12 +196,19 @@ func load_preset(preset_name: String) -> void:
 			challenges["immortal_snail"] = 2
 		"mouse_challenge3":
 			challenges["popups"] = 3
-			challenges["wanna_keep_playing"] = 3
+			challenges["wanna_keep_playing"] = 2
 			challenges["flashbang_cat"] = 3
 			challenges["flashlight"] = 3
-			challenges["immortal_snail"] = 2
+			challenges["immortal_snail"] = 3
 		"visual_chaos":
-			challenges[""] = 1
+			challenges["mirror"] = 3
+			challenges["random_shaders"] = 1
+			challenges["random_animations"] = 2
+			challenges["immortal_snail"] = 3
+			challenges["flashbang_cat"] = 2
+			challenges["flashlight"] = 3
+			challenges["visual_effects"] = 3
+			challenges["dead_pixels"] = 3
 		"slop_platformer":
 			challenges["ice_floor"] = 3
 			challenges["rigid_jump"] = 1
