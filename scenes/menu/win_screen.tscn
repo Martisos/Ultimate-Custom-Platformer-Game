@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://bv66vhnsx3gji" path="res://scripts/menu/win_screen.gd" id="1_dbu1v"]
 [ext_resource type="Shader" uid="uid://rcyh1lwnfjvh" path="res://scenes/shaders/firework.gdshader" id="2_7nuyu"]
+[ext_resource type="Shader" uid="uid://cjvrcmg4nasce" path="res://scenes/shaders/gradient_text.gdshader" id="2_jlilc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7nuyu"]
+shader = ExtResource("2_jlilc")
+shader_parameter/color1 = Color(1, 0, 0, 1)
+shader_parameter/color2 = Color(1, 1, 0, 1)
+shader_parameter/speed = 3.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kb7tl"]
 shader = ExtResource("2_7nuyu")
@@ -9,7 +16,7 @@ shader_parameter/resolution = Vector2(600, 400)
 shader_parameter/firework_count = 7.0
 shader_parameter/particle_count = 35.0
 shader_parameter/size = 1.0
-shader_parameter/sharpen = 1.5000000074506001
+shader_parameter/sharpen = 1.5000000074506
 shader_parameter/speed = 2.0
 shader_parameter/gravity = 0.9
 shader_parameter/lifetime = 7.0
@@ -32,17 +39,43 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="CongratsLabel" type="RichTextLabel" parent="." unique_id=1746252562]
+[node name="DidItLabel" type="Label" parent="." unique_id=988158523]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -39.0
+offset_top = 5.0
+offset_right = 39.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "You did it!"
+
+[node name="Container" type="Control" parent="." unique_id=1624455004]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CongratsLabel" type="RichTextLabel" parent="Container" unique_id=1746252562]
+material = SubResource("ShaderMaterial_7nuyu")
 layout_mode = 0
 offset_left = 181.0
 offset_top = 83.0
 offset_right = 459.0
 offset_bottom = 150.0
-text = "GOOD JOB!"
+bbcode_enabled = true
+text = "[font_size=20]GOOD JOB!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ScoreLabel" type="Label" parent="." unique_id=826603003]
+[node name="ScoreLabel" type="Label" parent="Container" unique_id=826603003]
 layout_mode = 0
 offset_left = 181.0
 offset_top = 144.0
@@ -52,7 +85,7 @@ theme_override_font_sizes/font_size = 48
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NewHighscoreLabel" type="Label" parent="." unique_id=187025195]
+[node name="NewHighscoreLabel" type="Label" parent="Container" unique_id=187025195]
 layout_mode = 0
 offset_left = 181.0
 offset_top = 215.0
@@ -61,7 +94,7 @@ offset_bottom = 238.0
 text = "New High Score!"
 horizontal_alignment = 1
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=143892155]
+[node name="ColorRect" type="ColorRect" parent="Container" unique_id=143892155]
 material = SubResource("ShaderMaterial_kb7tl")
 layout_mode = 1
 anchors_preset = 15
