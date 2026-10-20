@@ -72,7 +72,7 @@ func _on_preset_chosen(preset_name: String) -> void:
 func _on_start_button_pressed() -> void:
 	ChallengeManager.is_new_high_score = false
 	ChallengeManager.save_game()
-	get_tree().change_scene_to_file("res://scenes/maps/world_1.tscn")
+	TransitionScreen.change_scene("res://scenes/maps/world_1.tscn")
 
 func _on_tile_or_challenge_changed() -> void:
 	_on_any_challenge_changed()

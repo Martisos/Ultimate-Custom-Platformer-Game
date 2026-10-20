@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Menudatabase="*uid://dukwa1e40gf84"
 ChallengeManager="*uid://laqcw0owoi88"
+TransitionScreen="*uid://3fqv0doqctj"
 
 [display]
 

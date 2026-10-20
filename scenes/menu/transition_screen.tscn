@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://3fqv0doqctj"]
+
+[ext_resource type="Script" uid="uid://h6bn1wyqwkt5" path="res://scripts/menu/transition_screen.gd" id="1_u1dwk"]
+
+[node name="TransitionScreen" type="CanvasLayer" unique_id=28368807]
+layer = 999
+script = ExtResource("1_u1dwk")
+
+[node name="Container" type="Control" parent="." unique_id=611996973]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dark1" type="ColorRect" parent="Container" unique_id=579145077]
+custom_minimum_size = Vector2(640, 120)
+layout_mode = 0
+offset_left = 640.0
+offset_top = 240.0
+offset_right = 1280.0
+offset_bottom = 360.0
+color = Color(0, 0, 0, 1)
+
+[node name="Dark2" type="ColorRect" parent="Container" unique_id=1411368046]
+custom_minimum_size = Vector2(640, 120)
+layout_mode = 0
+offset_left = 640.0
+offset_top = 120.0
+offset_right = 1280.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
+
+[node name="Dark3" type="ColorRect" parent="Container" unique_id=762909722]
+custom_minimum_size = Vector2(640, 120)
+layout_mode = 0
+offset_left = 640.0
+offset_right = 1280.0
+offset_bottom = 120.0
+color = Color(0, 0, 0, 1)

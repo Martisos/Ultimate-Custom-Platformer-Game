@@ -42,7 +42,6 @@ var is_dead: bool = false
 
 func _ready() -> void:
 	apply_modifiers()
-	animation_player.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	
@@ -159,9 +158,7 @@ func trigger_land_squash() -> void:
 	var tween = create_tween()
 	tween.tween_property(sprite, "scale", Vector2(1.0, 1.0), 0.15).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
-func _on_animation_finished(anim_name: String) -> void:
-	if anim_name == "death":
-		get_tree().reload_current_scene()
+
 
 func update_animation() -> void:
 	if is_dead: return
@@ -227,4 +224,4 @@ func die(reason: String = "") -> void:
 	if animation_death_deaths.has(reason):
 		animation_player.play("death")
 		await get_tree().create_timer(1.5).timeout
-	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")
+	TransitionScreen.change_scene("res://scenes/menu/death_screen.tscn")
