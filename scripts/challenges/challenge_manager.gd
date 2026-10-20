@@ -60,6 +60,7 @@ var presets: Dictionary = {
 
 var high_score: int = 0
 var is_new_high_score: bool = false
+var death_cause: String = ""
 var current_score: int = 0
 const SAVE_PATH = "user://savegame.cfg"
 

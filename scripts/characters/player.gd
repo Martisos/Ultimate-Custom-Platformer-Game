@@ -46,19 +46,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if is_dead: return
-	
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		coyote_timer -= delta
 		
-		if velocity.y > 0:
-			fall_time += delta
-		else:
-			fall_time = 0.0
+		if !is_dead:
+			coyote_timer -= delta
+			if velocity.y > 0:
+				fall_time += delta
+			else:
+				fall_time = 0.0
 	else:
-		coyote_timer = coyote_time
-		fall_time = 0.0
+		if !is_dead:
+			coyote_timer = coyote_time
+			fall_time = 0.0
+		
+	if is_dead:
+		move_and_slide()
+		return
 	
 	if Input.is_action_just_pressed("jump") and coyote_timer > 0.0:
 		velocity.y  = max_jump_velocity
@@ -210,15 +214,17 @@ func die(reason: String = "") -> void:
 	if is_dead: return
 	is_dead = true
 	
+	ChallengeManager.death_cause = reason
+	
 	var animation_death_deaths : Array[String] = [
 		"Fall Damage (Dark souls style)",
 		"Touched by an Immortal Snail"
 	]
 	
-	velocity = Vector2.ZERO
+	velocity.x = 0 
 	print("Died: ", reason)
 	
 	if animation_death_deaths.has(reason):
 		animation_player.play("death")
-	else:
-		get_tree().reload_current_scene()
+		await get_tree().create_timer(1.5).timeout
+	get_tree().change_scene_to_file("res://scenes/menu/death_screen.tscn")

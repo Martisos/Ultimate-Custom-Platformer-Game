@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://cngxykq1gafex"]
+
+[ext_resource type="Shader" uid="uid://cjvrcmg4nasce" path="res://scenes/shaders/gradient_text.gdshader" id="1_0vcrs"]
+[ext_resource type="Script" uid="uid://bh5stdetb8y15" path="res://scripts/menu/death_screen.gd" id="1_51ls8"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kb7tl"]
+shader = ExtResource("1_0vcrs")
+shader_parameter/color1 = Color(0.49609375, 0, 0.012629958, 1)
+shader_parameter/color2 = Color(0.8984375, 0, 0.11796011, 1)
+shader_parameter/speed = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tf8s5"]
+shader = ExtResource("1_0vcrs")
+shader_parameter/color1 = Color(0.76171875, 0, 0, 1)
+shader_parameter/color2 = Color(0.5, 0, 0, 1)
+shader_parameter/speed = 1.0
+
+[node name="DeathScreen" type="Control" unique_id=235479707]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51ls8")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1336230115]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Container" type="Control" parent="Background" unique_id=1898761731]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Background/Container" unique_id=753450060]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = -48.0
+offset_right = 99.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="GameOverLabel" type="Label" parent="Background/Container/VBoxContainer" unique_id=46657978]
+material = SubResource("ShaderMaterial_kb7tl")
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="CauseLabel" type="Label" parent="Background/Container/VBoxContainer" unique_id=1504348569]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Fall"
+horizontal_alignment = 1
+
+[node name="AgainButton" type="Button" parent="Background/Container/VBoxContainer" unique_id=676100496]
+material = SubResource("ShaderMaterial_tf8s5")
+custom_minimum_size = Vector2(276, 30)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Background/Container/VBoxContainer/AgainButton" unique_id=978584633]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+text = "TRY AGAIN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuButton" type="Button" parent="Background/Container" unique_id=431655260]
+layout_mode = 0
+offset_left = 550.0
+offset_top = 364.0
+offset_right = 625.0
+offset_bottom = 395.0
+text = "Menu"
+
+[node name="CurrentPointsLabel" type="Label" parent="Background/Container" unique_id=727383613]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 362.0
+offset_right = 267.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 16
+text = "Current Score: "
+
+[connection signal="pressed" from="Background/Container/VBoxContainer/AgainButton" to="." method="_on_again_button_pressed"]
+[connection signal="pressed" from="Background/Container/MenuButton" to="." method="_on_menu_button_pressed"]

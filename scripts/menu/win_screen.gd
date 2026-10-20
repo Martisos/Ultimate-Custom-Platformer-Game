@@ -20,6 +20,8 @@ var current_displayed_score: int = 0
 var timer: float = 0.0
 var max_time: float = 0.05
 
+var timer_score: float = 0.0
+var max_timer_score: float = 0.3
 
 var can_count: bool = false
 var animation_done: bool = false
@@ -30,6 +32,7 @@ func _ready() -> void:
 	print(score, " - win score")
 	print(current_displayed_score, " - win current score")
 	
+	score_label.text = str(0)
 	container.hide()
 	start_did_it_animation()
 
@@ -50,6 +53,8 @@ func start_did_it_animation() -> void:
 func _process(delta: float) -> void:
 	if animation_done or !can_count: return
 	timer -= delta
+	timer_score -= delta
+	
 	
 	if current_displayed_score >= score:
 		current_displayed_score = score
@@ -61,6 +66,14 @@ func _process(delta: float) -> void:
 		current_displayed_score += 10
 		timer = max_time
 		update_text()
+	
+	if timer_score <= 0 and ChallengeManager.is_new_high_score:
+		toggle_highscore_text()
+		timer_score = max_timer_score
+		
+func toggle_highscore_text() -> void:
+	var is_visible: bool = new_highscore_label.visible
+	new_highscore_label.visible = !is_visible
 
 func go_to_menu() -> void:
 	await get_tree().create_timer(6.5).timeout
@@ -70,14 +83,14 @@ func go_to_menu() -> void:
 func update_text() -> void:
 	var mat = congrats_label.material as ShaderMaterial
 	
-	if current_displayed_score >= 4200:
+	if current_displayed_score >= 4250:
 		congrats_label.text = texts[4]
 		if mat:
 			mat.set_shader_parameter("color1", Color(0.922, 0.854, 0.32, 1.0))
 			mat.set_shader_parameter("color2", Color(0.773, 0.752, 0.473, 1.0))
 			mat.set_shader_parameter("speed", 5.0)
 			
-	elif current_displayed_score >= 3500:
+	elif current_displayed_score >= 3400:
 		congrats_label.text = texts[3]
 		if mat:
 			mat.set_shader_parameter("color1", Color(0.5, 0.0, 1.0))
@@ -110,3 +123,5 @@ func update_text() -> void:
 
 func set_timer() -> void:
 	timer = max_time
+	if ChallengeManager.is_new_high_score:
+		timer_score = max_timer_score
