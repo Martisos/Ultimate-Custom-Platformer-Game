@@ -15,11 +15,16 @@ run/main_scene="uid://bprj0fyiy1rnd"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://nx88tlaxw06q"
+
 [autoload]
 
 Menudatabase="*uid://dukwa1e40gf84"
 ChallengeManager="*uid://laqcw0owoi88"
 TransitionScreen="*uid://3fqv0doqctj"
+AudioManager="*uid://d3abus3fo8e3t"
 
 [display]
 

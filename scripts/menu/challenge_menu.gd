@@ -3,6 +3,8 @@ extends Control
 var high_score: int = 0
 var tile_scene: PackedScene = preload("uid://vfxwxu6qiqim")
 
+const menu_music: AudioStream = preload("uid://dflf77spstxk3")
+
 @onready var tooltip: PanelContainer = $Tooltip
 @onready var label_current_score_number: Label = $"Container/RightPanel/VBoxContainer/RightBottomPanel/VBoxContainer/HBoxContainer/Actual Score/LabelCurrentScoreNumber"
 @onready var grid_container: GridContainer = $Container/GridContainer
@@ -12,6 +14,7 @@ var tile_scene: PackedScene = preload("uid://vfxwxu6qiqim")
 func _ready() -> void:
 	_on_any_challenge_changed()
 	sync_high_score()
+	AudioManager.play_music(menu_music)
 	var all_challenges: Dictionary = ChallengeManager.return_all_challenges()
 	for challenge in all_challenges:
 		var newTile = tile_scene.instantiate()

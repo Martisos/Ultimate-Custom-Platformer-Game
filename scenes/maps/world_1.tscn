@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://cat6ndethayqc"]
 
+[ext_resource type="Script" uid="uid://hw615mgjas2c" path="res://scripts/maps/world_1.gd" id="1_1s2g6"]
 [ext_resource type="TileSet" uid="uid://2to161on3i36" path="res://tilesets/props_tileset.tres" id="1_208fp"]
 [ext_resource type="TileSet" uid="uid://cc5b33gei6ull" path="res://tilesets/default_tilemap.tres" id="2_r50x4"]
 [ext_resource type="PackedScene" uid="uid://86e1g4py2cph" path="res://scenes/characters/player.tscn" id="3_r50x4"]
@@ -15,6 +16,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_1s2g6"]
 
 [node name="World1" type="Node2D" unique_id=1114070474]
+script = ExtResource("1_1s2g6")
 
 [node name="LayerHolder" type="Node2D" parent="." unique_id=1616382685]
 
