@@ -7,6 +7,7 @@ signal tooltip_hide()
 @export var challenge_key: String = ""
 @export var max_level: int = 3
 var current_level: int = 0
+var icon_path: String = ""
 
 @onready var current_level_label: Label = $HBoxContainer/Right/VBoxContainer/CurrentLevelLabel
 @onready var texture_rect: TextureRect = $HBoxContainer/Left/TextureRect
@@ -17,9 +18,9 @@ func _ready() -> void:
 func setup(key: String, level: int) -> void:
 	challenge_key = key
 	max_level = level
+	icon_path = "res://resources/sprites/challenge_icons/" + challenge_key + ".png"
 	
 	current_level = ChallengeManager.challenges.get(challenge_key, 0)
-
 func _on_left_mouse_entered() -> void:
 	emit_signal("tooltip_show", challenge_key)
 
@@ -27,6 +28,10 @@ func _on_left_mouse_exited() -> void:
 	emit_signal("tooltip_hide")
 
 func update_display() -> void:
+	if ResourceLoader.exists(icon_path):
+		texture_rect.texture = load(icon_path)
+	else:
+		print("not found image for:", challenge_key, " ")
 	current_level_label.text = str(current_level)
 	
 	var newModulate: Color

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://cud60e8ui6yl1"]
+
+[ext_resource type="Script" uid="uid://dw0nf300oxhls" path="res://scripts/menu/options_panel.gd" id="1_2e2xv"]
+
+[node name="OptionsPanel" type="CanvasLayer" unique_id=1428089128]
+process_mode = 3
+layer = 998
+script = ExtResource("1_2e2xv")
+
+[node name="Control" type="Control" parent="." unique_id=660989049]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1849692183]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.41960785)
+
+[node name="Container" type="Control" parent="Control" unique_id=921724754]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.25
+offset_top = -88.25
+offset_right = 149.25
+offset_bottom = 88.25
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="Background" type="ColorRect" parent="Control/Container" unique_id=1957790711]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.03529412, 0.03137255, 0.105882354, 0.84313726)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/Container" unique_id=1943448205]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.875
+offset_top = -69.0
+offset_right = 124.125
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsLabel" type="Label" parent="Control/Container/VBoxContainer" unique_id=1792214924]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="MusicVolume" type="HBoxContainer" parent="Control/Container/VBoxContainer" unique_id=252374309]
+custom_minimum_size = Vector2(245, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Container/VBoxContainer/MusicVolume" unique_id=1020150134]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Music volume"
+
+[node name="MusicSlider" type="HSlider" parent="Control/Container/VBoxContainer/MusicVolume" unique_id=1894214964]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SFXVolume" type="HBoxContainer" parent="Control/Container/VBoxContainer" unique_id=1224458506]
+custom_minimum_size = Vector2(245, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/Container/VBoxContainer/SFXVolume" unique_id=832259051]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "SFX volume    "
+
+[node name="SFXSlider" type="HSlider" parent="Control/Container/VBoxContainer/SFXVolume" unique_id=1538715715]
+custom_minimum_size = Vector2(100, 25)
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/Container/VBoxContainer" unique_id=5334824]
+layout_mode = 2
+alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Control/Container/VBoxContainer/HBoxContainer" unique_id=1713401704]
+layout_mode = 2
+text = "Continue"
+
+[node name="MenuButton" type="Button" parent="Control/Container/VBoxContainer/HBoxContainer" unique_id=255799635]
+layout_mode = 2
+text = "Quit to menu"
+
+[connection signal="value_changed" from="Control/Container/VBoxContainer/MusicVolume/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Control/Container/VBoxContainer/SFXVolume/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="pressed" from="Control/Container/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="Control/Container/VBoxContainer/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

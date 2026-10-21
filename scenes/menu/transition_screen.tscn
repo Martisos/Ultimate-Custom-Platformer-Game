@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://h6bn1wyqwkt5" path="res://scripts/menu/transition_screen.gd" id="1_u1dwk"]
 
 [node name="TransitionScreen" type="CanvasLayer" unique_id=28368807]
+process_mode = 3
 layer = 999
 script = ExtResource("1_u1dwk")
 

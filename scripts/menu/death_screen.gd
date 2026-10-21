@@ -17,6 +17,10 @@ var original_current_points_label_position: Vector2 = Vector2(15, 362)
 
 var x = Vector2(15, 362)
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("reset"):
+		ChallengeManager.try_reset()
+
 func _ready() -> void:
 	
 	menu_button.global_position = original_menu_button_position
@@ -33,6 +37,7 @@ func _ready() -> void:
 	sync_text()
 	await get_tree().create_timer(0.5).timeout
 	start_animations()
+	OptionsPanel.can_show = true
 
 func sync_text() -> void:
 	cause_label.text = cause

@@ -5,6 +5,7 @@ extends Node
 func play_music(music_stream: AudioStream) -> void:
 	if music_player.stream == music_stream and music_player.playing:
 		return
+	music_player.bus = "Music"
 	
 	music_player.stream = music_stream
 	music_player.play()

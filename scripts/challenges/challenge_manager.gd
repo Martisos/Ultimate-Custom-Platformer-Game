@@ -66,6 +66,22 @@ const SAVE_PATH = "user://savegame.cfg"
 
 var is_popup_open: bool = false
 
+var is_resetting: bool = false
+
+func try_reset() -> void:
+	if is_resetting: 
+		return
+		
+	is_resetting = true
+	
+	ChallengeManager.is_new_high_score = false
+	ChallengeManager.save_game()
+	
+	TransitionScreen.change_scene("res://scenes/maps/world_1.tscn")
+	
+	await get_tree().create_timer(1.0).timeout
+	is_resetting = false
+
 func update_current_points() -> void:
 	current_score = 0
 	print("---------")
@@ -119,6 +135,7 @@ func get_challange_level(name: String) -> int:
 
 # -- saving loading --
 
+
 func save_game() -> void:
 	update_current_points()
 	var config = ConfigFile.new()
@@ -129,6 +146,9 @@ func save_game() -> void:
 	
 	for key in presets.keys():
 		config.set_value("presets", key, presets[key]["beaten"])
+	
+	config.set_value("sound", "music", OptionsPanel.music_volume)
+	config.set_value("sound", "sfx", OptionsPanel.sfx_volume)
 	
 	config.save(SAVE_PATH)
 
@@ -146,7 +166,15 @@ func load_game() -> void:
 	for key in presets.keys():
 		presets[key]["beaten"] = config.get_value("presets", key, false)
 		print(presets[key]["beaten"])
-		
+	
+	OptionsPanel.music_volume = config.get_value("sound", "music", 1.0)
+	OptionsPanel.sfx_volume = config.get_value("sound", "sfx", 1.0)
+	
+	var m_bus = AudioServer.get_bus_index("Music")
+	var s_bus = AudioServer.get_bus_index("SFX")
+	AudioServer.set_bus_volume_db(m_bus, linear_to_db(max(OptionsPanel.music_volume, 0.001)))
+	AudioServer.set_bus_volume_db(s_bus, linear_to_db(max(OptionsPanel.sfx_volume, 0.001)))
+	
 	high_score = config.get_value("game", "high_score", 0)
 
 func hard_reset() -> void:

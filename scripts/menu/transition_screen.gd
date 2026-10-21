@@ -24,6 +24,7 @@ func change_scene(target_scene: String) -> void:
 	container.hide()
 
 func to_darkness() -> void:
+	OptionsPanel.can_show = false
 	dark_1.position.x = screen_width
 	dark_2.position.x = screen_width
 	dark_3.position.x = screen_width
@@ -47,3 +48,5 @@ func from_darkness() -> void:
 	tween.tween_property(dark_3, "position:x", -screen_width, speed).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN).set_delay(0.2)
 	
 	await tween.finished
+	get_tree().paused = false
+	OptionsPanel.can_show = true

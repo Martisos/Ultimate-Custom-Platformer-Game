@@ -3,3 +3,4 @@ Sprites:
 	Tileset: https://shackhal.itch.io/multi-platformer-tileset
 	Gambling icons: https://clockworkraven.itch.io/raven-fantasy-icons
 	Music: https://hydrogene.itch.io/high-quality-16-bit-music
+	Icons: https://nikoichu.itch.io/pixel-icons

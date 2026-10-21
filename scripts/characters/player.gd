@@ -58,7 +58,11 @@ func _physics_process(delta: float) -> void:
 		if !is_dead:
 			coyote_timer = coyote_time
 			fall_time = 0.0
+	
+	if Input.is_action_just_pressed("reset"):
+		ChallengeManager.try_reset()
 		
+	
 	if is_dead:
 		move_and_slide()
 		return
@@ -210,6 +214,7 @@ func apply_modifiers() -> void:
 func die(reason: String = "") -> void:
 	if is_dead: return
 	is_dead = true
+	OptionsPanel.can_show = false
 	
 	ChallengeManager.death_cause = reason
 	
@@ -224,4 +229,9 @@ func die(reason: String = "") -> void:
 	if animation_death_deaths.has(reason):
 		animation_player.play("death")
 		await get_tree().create_timer(1.5).timeout
+	
+	if ChallengeManager.is_resetting:
+		return 
+	
 	TransitionScreen.change_scene("res://scenes/menu/death_screen.tscn")
+	
