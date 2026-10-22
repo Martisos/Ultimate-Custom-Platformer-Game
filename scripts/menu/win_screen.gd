@@ -7,6 +7,8 @@ extends Control
 @onready var score_label: Label = $Container/ScoreLabel
 @onready var new_highscore_label: Label = $Container/NewHighscoreLabel
 
+const menu_music: AudioStream = preload("uid://bwtw8j5vs3igj")
+
 var texts: Array[String] = [
 	"[center][b][font_size=20]GOOD JOB![/font_size][/b][/center]",
 	"[center][b][font_size=24]FANTASTIC![/font_size][/b][/center]",
@@ -34,6 +36,7 @@ func _ready() -> void:
 	
 	score_label.text = str(0)
 	container.hide()
+	AudioManager.play_music(menu_music)
 	start_did_it_animation()
 
 func start_did_it_animation() -> void:
@@ -42,8 +45,8 @@ func start_did_it_animation() -> void:
 	did_it_label.modulate = Color(1.0, 1.0, 1.0, 0.0)
 	
 	var tween = create_tween().set_parallel(true)
-	tween.tween_property(did_it_label, "position:y", start_position_y - 30, 2)
-	tween.tween_property(did_it_label, "modulate", Color(1.0, 1.0, 1.0, 1), 1)
+	tween.tween_property(did_it_label, "position:y", start_position_y - 30, 1)
+	tween.tween_property(did_it_label, "modulate", Color(1.0, 1.0, 1.0, 1), 0.5)
 	await tween.finished
 	did_it_label.hide()
 	container.show()
@@ -78,7 +81,8 @@ func toggle_highscore_text() -> void:
 func go_to_menu() -> void:
 	await get_tree().create_timer(6.5).timeout
 	ChallengeManager.save_game()
-	get_tree().change_scene_to_file("res://scenes/menu/challenge_menu.tscn")
+
+	TransitionScreen.change_scene("res://scenes/menu/challenge_menu.tscn")
 
 func update_text() -> void:
 	var mat = congrats_label.material as ShaderMaterial
@@ -90,21 +94,21 @@ func update_text() -> void:
 			mat.set_shader_parameter("color2", Color(0.773, 0.752, 0.473, 1.0))
 			mat.set_shader_parameter("speed", 5.0)
 			
-	elif current_displayed_score >= 3400:
+	elif current_displayed_score >= 3300:
 		congrats_label.text = texts[3]
 		if mat:
 			mat.set_shader_parameter("color1", Color(0.5, 0.0, 1.0))
 			mat.set_shader_parameter("color2", Color(1.0, 0.044, 0.724, 1.0))
 			mat.set_shader_parameter("speed", 5.0)
 			
-	elif current_displayed_score >= 2500:
+	elif current_displayed_score >= 2200:
 		congrats_label.text = texts[2]
 		if mat:
 			mat.set_shader_parameter("color1", Color(0.0, 0.5, 1.0))
 			mat.set_shader_parameter("color2", Color(0.0, 1.0, 1.0))
 			mat.set_shader_parameter("speed", 5.0)
 			
-	elif current_displayed_score >= 1200:
+	elif current_displayed_score >= 1000:
 		congrats_label.text = texts[1]
 		if mat:
 			mat.set_shader_parameter("color1", Color(0.0, 1.0, 0.0))
@@ -119,7 +123,6 @@ func update_text() -> void:
 			mat.set_shader_parameter("speed", 3.0)
 	
 	score_label.text = str(current_displayed_score)
-	
 
 func set_timer() -> void:
 	timer = max_time

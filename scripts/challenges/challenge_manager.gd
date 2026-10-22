@@ -44,6 +44,14 @@ var presets: Dictionary = {
 		"title" : "Slop Platformer",
 		"beaten" : false
 	}, 
+	"can_not_kill" : {
+		"title" : "Can't quite kill you",
+		"beaten" : false
+	},
+	"can_kill" : {
+		"title" : "Can quite kill you",
+		"beaten" : false
+	},
 	"all_one": {
 		"title" : "All to 1",
 		"beaten": false
@@ -74,7 +82,6 @@ func try_reset() -> void:
 		
 	is_resetting = true
 	
-	ChallengeManager.is_new_high_score = false
 	ChallengeManager.save_game()
 	
 	TransitionScreen.change_scene("res://scenes/maps/world_1.tscn")
@@ -246,6 +253,23 @@ func load_preset(preset_name: String) -> void:
 			challenges["immortal_snail"] = 3
 			challenges["lag"] = 2
 			challenges["dead_pixels"] = 3
+		"can_not_kill":
+			challenges["ice_floor"] = 3
+			challenges["rigid_jump"] = 1
+			challenges["popups"] = 2
+			challenges["mirror"] = 2
+			challenges["random_shaders"] = 3
+			challenges["random_animations"] = 1
+			challenges["flashbang_cat"] = 3
+			challenges["flashlight"] = 3
+			challenges["lag"] = 1
+			challenges["dead_pixels"] = 3
+			challenges["visual_effects"] = 2
+		"can_kill":
+			challenges["wanna_keep_playing"] = 3
+			challenges["fall_damage"] = 3
+			challenges["immortal_snail"] = 3
+			challenges["gambling"] = 3
 
 func complete_preset(preset_name: String) -> void:
 	if presets.has(preset_name):
