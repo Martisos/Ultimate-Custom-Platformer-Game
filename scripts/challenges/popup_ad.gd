@@ -48,6 +48,7 @@ func set_next_ad_time() -> void:
 
 func show_ad() -> void:
 	ad_active = true
+	AudioManager.play_sfx(preload("uid://njp50hohu1bp"))
 	ChallengeManager.is_popup_open = true
 	if ad_images.size() > 0:
 		ad_image.texture = ad_images.pick_random()

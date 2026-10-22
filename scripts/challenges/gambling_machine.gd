@@ -35,7 +35,7 @@ func roll_slots_sequentially() -> void:
 				slot.texture = other_icons.pick_random()
 				await get_tree().create_timer(0.1).timeout
 			slot.texture = skull_icon
-		
+		AudioManager.play_sfx(preload("uid://c8qd2xo2so2ql"))
 		await get_tree().create_timer(0.5).timeout
 		if player: 
 			player.die("HIT A JACKPOT (3 Skulls)")

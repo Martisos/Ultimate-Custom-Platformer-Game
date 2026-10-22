@@ -59,6 +59,7 @@ func show_dialoge() -> void:
 	ChallengeManager.is_popup_open = true
 	dialog_window.visible = true
 	timer = 0.0
+	AudioManager.play_sfx(preload("uid://ybu1hjw0f0ok"))
 	var lang_data
 	
 	if randf() < 0.5:

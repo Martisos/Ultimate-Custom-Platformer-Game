@@ -59,6 +59,7 @@ func _process(delta: float) -> void:
 func flashbang() -> void:
 	if get_parent().has_method("got_flashed"):
 		get_parent().got_flashed(flashbang_time, self)
+		AudioManager.play_sfx(preload("uid://bixob4xuffuod"))
 	
 	set_process(false)
 	sprite.visible = false
@@ -71,6 +72,7 @@ func flashbang() -> void:
 
 
 func _on_mouse_entered() -> void:
+	AudioManager.play_sfx(preload("uid://gghxyuun6nlo"))
 	set_process(false)
 	animation_player.stop()
 	var tween = create_tween()
