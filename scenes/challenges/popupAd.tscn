@@ -2,10 +2,24 @@
 
 [ext_resource type="Script" uid="uid://bmqqrb8yl3gsf" path="res://scripts/challenges/popup_ad.gd" id="1_gkcym"]
 [ext_resource type="Texture2D" uid="uid://divdqyu1360y1" path="res://resources/ads/totallyNormalImage.png" id="2_wnek3"]
+[ext_resource type="Texture2D" uid="uid://c8kubeo8s03yn" path="res://resources/ads/catStare.png" id="3_c27n5"]
+[ext_resource type="Texture2D" uid="uid://br0dp6uelqqw0" path="res://resources/ads/crash.png" id="4_u4ofk"]
+[ext_resource type="Texture2D" uid="uid://dwkbxhivewlb6" path="res://resources/ads/didYouKnow1.png" id="5_urpn1"]
+[ext_resource type="Texture2D" uid="uid://c40k4ftbo48mv" path="res://resources/ads/didYouKnow2.png" id="6_ndsol"]
+[ext_resource type="Texture2D" uid="uid://dq4xa7uj08in6" path="res://resources/ads/godot.png" id="7_7xvwv"]
+[ext_resource type="Texture2D" uid="uid://cl3gjl6d33c3e" path="res://resources/ads/hamster.png" id="8_rtg7c"]
+[ext_resource type="Texture2D" uid="uid://c75h2hx33rwh1" path="res://resources/ads/haveYouSeenThisDog.png" id="9_qy84o"]
+[ext_resource type="Texture2D" uid="uid://djfimjec86pex" path="res://resources/ads/itchio3.png" id="10_t2lxd"]
+[ext_resource type="Texture2D" uid="uid://by65bp6ku4fap" path="res://resources/ads/itchio.png" id="11_tad1m"]
+[ext_resource type="Texture2D" uid="uid://c8r0o2pkosm51" path="res://resources/ads/kittyRose.png" id="12_0sund"]
+[ext_resource type="Texture2D" uid="uid://dddrtajw7fkly" path="res://resources/ads/minos.png" id="13_t2hy2"]
+[ext_resource type="Texture2D" uid="uid://bvk0k17la7hgs" path="res://resources/ads/otherGames.png" id="14_1susr"]
+[ext_resource type="Texture2D" uid="uid://d1nrcrkmuatgc" path="res://resources/ads/space.png" id="15_dedb7"]
+[ext_resource type="Texture2D" uid="uid://b75qipl5gxvhf" path="res://resources/ads/teto.png" id="16_ymne3"]
 
 [node name="PopupAd" type="CanvasLayer" unique_id=1365224411]
 script = ExtResource("1_gkcym")
-ad_images = Array[Texture2D]([ExtResource("2_wnek3")])
+ad_images = Array[Texture2D]([ExtResource("2_wnek3"), ExtResource("3_c27n5"), ExtResource("4_u4ofk"), ExtResource("5_urpn1"), ExtResource("6_ndsol"), ExtResource("7_7xvwv"), ExtResource("8_rtg7c"), ExtResource("9_qy84o"), ExtResource("10_t2lxd"), ExtResource("11_tad1m"), ExtResource("12_0sund"), ExtResource("13_t2hy2"), ExtResource("14_1susr"), ExtResource("15_dedb7"), ExtResource("16_ymne3")])
 
 [node name="AdContainer" type="Control" parent="." unique_id=1415189859]
 layout_mode = 3
