@@ -13,11 +13,13 @@ func play_music(music_stream: AudioStream) -> void:
 func stop_music() -> void:
 	music_player.stop()
 
-func play_sfx(sound_stream: AudioStream) -> void:
+func play_sfx(sound_stream: AudioStream, randomize_pitch: bool = false) -> void:
 	var sfx_player = AudioStreamPlayer.new()
 	sfx_player.stream = sound_stream
-	
 	sfx_player.bus = "SFX"
+	
+	if randomize_pitch:
+		sfx_player.pitch_scale = randf_range(0.85, 1.15)
 	
 	add_child(sfx_player)
 	sfx_player.play()

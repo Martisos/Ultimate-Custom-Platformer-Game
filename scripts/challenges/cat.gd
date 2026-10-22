@@ -13,6 +13,7 @@ var going_left: bool = true
 var starting_x: int = 0
 
 var flashbang_time: float = 0.0
+var already_meowed: bool = false
 
 func _ready() -> void:
 	
@@ -72,7 +73,9 @@ func flashbang() -> void:
 
 
 func _on_mouse_entered() -> void:
-	AudioManager.play_sfx(preload("uid://gghxyuun6nlo"))
+	if !already_meowed:
+		AudioManager.play_sfx(preload("uid://gghxyuun6nlo"), true)
+		already_meowed = true
 	set_process(false)
 	animation_player.stop()
 	var tween = create_tween()
