@@ -2,7 +2,6 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		print("You won")
 		var score_earned = ChallengeManager.return_current_points()
 		
 		check_preset_done()

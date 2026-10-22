@@ -41,7 +41,6 @@ func _ready() -> void:
 	
 	if level > 0:
 		player = get_tree().get_first_node_in_group("player") as CharacterBody2D
-		print("start")
 		set_next_time()
 
 func _process(delta: float) -> void:
@@ -87,7 +86,6 @@ func set_next_time() -> void:
 		3:
 			next_popup_time = randf_range(5.0, 10.0)
 			
-	print(level, " ", next_popup_time)
 
 func _on_left_button_pressed() -> void:
 	if is_left_button_correct:

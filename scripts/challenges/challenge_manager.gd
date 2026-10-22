@@ -91,16 +91,12 @@ func try_reset() -> void:
 
 func update_current_points() -> void:
 	current_score = 0
-	print("---------")
 	for challenge in challenges:
-		print("first if")
 		if Menudatabase.menu_data.has(challenge):
-			print("second if")
 			var data = Menudatabase.menu_data[challenge]
 			var points: int = data["points"]
 			var aditional_points = points * challenges[challenge]
 			current_score += aditional_points
-			print(aditional_points)
 
 func return_current_points() -> int:
 	return current_score
@@ -128,14 +124,12 @@ func add_to_current_score(points: int) -> void:
 func _ready() -> void:
 	#hard_reset()
 	load_game()
-	print(high_score)
 
 func set_challenges_to_max() -> void:
 	for challenge in challenges:
 		if challenge == "rigid_jump":
 			challenges[challenge] = 1
 		challenges[challenge] = 3
-		print(challenge)
 
 func get_challange_level(name: String) -> int:
 	return challenges.get(name, 0)
@@ -164,7 +158,6 @@ func load_game() -> void:
 	
 	var err = config.load(SAVE_PATH)
 	if err != OK:
-		print("first time playing - debug")
 		return
 	
 	for key in challenges.keys():
@@ -172,7 +165,6 @@ func load_game() -> void:
 	
 	for key in presets.keys():
 		presets[key]["beaten"] = config.get_value("presets", key, false)
-		print(presets[key]["beaten"])
 	
 	OptionsPanel.music_volume = config.get_value("sound", "music", 1.0)
 	OptionsPanel.sfx_volume = config.get_value("sound", "sfx", 1.0)

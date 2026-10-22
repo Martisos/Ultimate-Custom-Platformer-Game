@@ -31,7 +31,6 @@ func update_display() -> void:
 	if ResourceLoader.exists(icon_path):
 		texture_rect.texture = load(icon_path)
 	else:
-		print("not found image for:", challenge_key, " ")
 	current_level_label.text = str(current_level)
 	
 	var newModulate: Color

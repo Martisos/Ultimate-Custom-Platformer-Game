@@ -31,8 +31,7 @@ var animation_done: bool = false
 func _ready() -> void:
 	score = ChallengeManager.current_score
 	if ChallengeManager.is_new_high_score: new_highscore_label.show()
-	print(score, " - win score")
-	print(current_displayed_score, " - win current score")
+
 	
 	score_label.text = str(0)
 	container.hide()

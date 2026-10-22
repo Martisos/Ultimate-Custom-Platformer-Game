@@ -95,7 +95,6 @@ func _physics_process(delta: float) -> void:
 	if was_in_air and is_on_floor():
 		
 		if fall_time >= max_fall_time:
-			print(fall_time)
 			die("Fall Damage (Dark souls style)")
 		else:
 			trigger_land_squash()
@@ -224,7 +223,6 @@ func die(reason: String = "") -> void:
 	]
 	
 	velocity.x = 0 
-	print("Died: ", reason)
 	
 	if animation_death_deaths.has(reason):
 		animation_player.play("death")
